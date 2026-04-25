@@ -13,104 +13,123 @@
 
         body {
             font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: #F3EAE2;
-            color: #3F5A3F;
+            background-color: #FFF8F5;
+            color: #5E4B3C;
             overflow-x: hidden;
         }
 
-        /* Custom Color Palette */
+        /* Refined feminine palette */
         :root {
-            --warm-beige: #F3EAE2;
-            --warm-beige-dark: #E8DCCF;
-            --soft-sand: #D9C2AE;
-            --muted-leaf: #5E7D5A;
-            --deep-leaf: #3F5A3F;
-            --blush-pink: #E8A6A6;
-            --blush-soft: #F2B6B6;
-            --golden-amber: #F4C27A;
-            --amber-deep: #E0A85A;
-            --light-wood: #BFA38A;
-            --stone-taupe: #A89F96;
-            --cream-white: #FFFDF9;
+            --petal-white: #FFF9F7;
+            --rose-blush: #FCE4E0;
+            --dusted-rose: #EECDC9;
+            --cashmere-beige: #F4EAE3;
+            --mauve-sand: #E2D4CD;
+            --deep-rosewood: #A26A6A;
+            --soft-lavender: #D1C3D4;
+            --plum-brown: #704C4C;
+            --golden-nectar: #EFC8B3;
+            --warm-clay: #CBA48F;
+            --cream-latte: #FEF6F0;
+            --quiet-moss: #8A9A7B;
+            --shadow-rose: rgba(162, 106, 106, 0.08);
         }
 
-        /* ========= STICKY HEADER (matching home page) ========= */
+        /* ========= STICKY HEADER - matching homepage ========= */
         .navbar {
-            background: rgba(30, 40, 28, 0.92);
-            backdrop-filter: blur(16px);
-            padding: 0.8rem 6%;
+            background: rgba(255, 248, 244, 0.96);
+            backdrop-filter: blur(20px);
+            padding: 1.2rem 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1rem;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(232, 166, 166, 0.3);
+            gap: 2rem;
             position: sticky;
             top: 0;
             z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(194, 134, 110, 0.12);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
             text-decoration: none;
-            color: inherit;
+            transition: transform 0.2s ease;
+        }
+
+        .logo-area:hover {
+            transform: scale(1.02);
         }
 
         .logo-icon {
-            background: linear-gradient(135deg, var(--golden-amber), var(--amber-deep));
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #F9E0D2, #F2CFBF);
+            border-radius: 32% 68% 70% 30% / 44% 40% 60% 56%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            color: var(--deep-leaf);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 22px rgba(162, 106, 106, 0.12);
+        }
+
+        .logo-icon i {
+            font-size: 1.8rem;
+            color: #C2866E;
         }
 
         .logo-text h1 {
-            font-size: 1.5rem;
+            font-size: 1.65rem;
             font-family: 'Playfair Display', serif;
-            color: var(--golden-amber);
-            letter-spacing: -0.5px;
             font-weight: 600;
+            background: linear-gradient(135deg, #9E6D5E, #7A4C44);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+            margin: 0;
+            line-height: 1.2;
         }
 
         .logo-text p {
-            font-size: 0.65rem;
-            letter-spacing: 2.5px;
-            color: var(--soft-sand);
-            font-weight: 400;
+            font-size: 0.68rem;
+            letter-spacing: 3px;
+            color: #C2866E;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-top: 4px;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 3.5rem;
+            align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
+            font-size: 1rem;
             font-weight: 500;
-            color: var(--warm-beige);
-            transition: 0.25s;
-            font-size: 0.95rem;
+            color: #8B6B60;
+            transition: all 0.25s ease;
             position: relative;
-            letter-spacing: 0.5px;
+            padding: 8px 0;
+            letter-spacing: 0.3px;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -6px;
+            bottom: 2px;
             left: 0;
-            width: 0%;
-            height: 2px;
-            background: var(--blush-pink);
-            transition: 0.3s;
+            width: 0;
+            height: 2.5px;
+            background: linear-gradient(90deg, #D9A78E, #C2866E);
+            border-radius: 4px;
+            transition: width 0.3s ease;
         }
 
         .nav-links a:hover::after,
@@ -120,16 +139,75 @@
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: var(--blush-pink);
+            color: #C67A62;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-call {
+            background: linear-gradient(105deg, #D9A78E, #C2866E);
+            padding: 10px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            box-shadow: 0 6px 16px rgba(194, 134, 110, 0.25);
+            white-space: nowrap;
+        }
+
+        .nav-call:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(194, 134, 110, 0.35);
+        }
+
+        .nav-gift {
+            background: transparent;
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #C2866E;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 1.5px solid rgba(194, 134, 110, 0.4);
+            white-space: nowrap;
+        }
+
+        .nav-gift:hover {
+            background: #C2866E;
+            color: white;
+            transform: translateY(-2px);
         }
 
         .menu-toggle {
             display: none;
-            font-size: 1.6rem;
             background: none;
             border: none;
-            color: var(--golden-amber);
             cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger {
+            width: 28px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 2px;
+            background: #C2866E;
+            border-radius: 4px;
+            transition: all 0.3s;
         }
 
         /* ========= MOBILE DOCK ========= */
@@ -139,12 +217,13 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(63, 90, 63, 0.97);
-            backdrop-filter: blur(12px);
+            background: rgba(249, 239, 233, 0.96);
+            backdrop-filter: blur(22px);
             padding: 0.7rem 1rem;
             justify-content: space-around;
             z-index: 1000;
-            border-top: 1px solid var(--golden-amber);
+            border-top: 1px solid rgba(206, 154, 141, 0.4);
+            border-radius: 28px 28px 0 0;
         }
 
         .dock-item {
@@ -152,64 +231,50 @@
             flex-direction: column;
             align-items: center;
             text-decoration: none;
-            color: var(--soft-sand);
-            font-size: 0.7rem;
+            color: #B18B7E;
+            font-size: 0.65rem;
             gap: 4px;
-            padding: 6px 12px;
-            border-radius: 40px;
+            padding: 6px 14px;
+            border-radius: 60px;
             transition: all 0.2s;
         }
 
         .dock-item i {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
         }
 
         .dock-item.active, .dock-item:hover {
-            color: var(--golden-amber);
-            background: rgba(255, 255, 255, 0.15);
+            color: #BA7A6A;
+            background: rgba(239, 200, 179, 0.35);
         }
 
-        /* ========= FULL SCREEN SECTIONS ========= */
+        /* ========= FULL SECTIONS ========= */
         .full-section {
             width: 100%;
-            padding: 5rem 8%;
-            min-height: 100vh;
+            padding: 5rem 6%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        /* Hero Section with Background Image */
+        /* Hero Section */
         .hero-section {
+            background: linear-gradient(125deg, #FDF3EF 0%, #FCEAE4 100%);
             position: relative;
-            background: linear-gradient(135deg, var(--warm-beige) 0%, var(--warm-beige-dark) 100%);
             min-height: 55vh;
             overflow: hidden;
         }
 
         .hero-section::before {
-            content: '';
+            content: "✧ ˚₊‧⁺˖";
+            font-size: 22rem;
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=2070&auto=format');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.12;
-            z-index: 0;
-        }
-
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(243, 234, 226, 0.8) 0%, rgba(232, 220, 207, 0.9) 100%);
-            z-index: 1;
+            bottom: -15%;
+            right: -10%;
+            font-family: monospace;
+            opacity: 0.08;
+            color: #B07C6C;
+            pointer-events: none;
         }
 
         .hero-content {
@@ -220,202 +285,318 @@
             margin: 0 auto;
         }
 
+        .hero-badge {
+            display: inline-block;
+            background: rgba(239, 200, 179, 0.25);
+            backdrop-filter: blur(8px);
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: #B57A64;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(194, 134, 110, 0.3);
+        }
+
         .hero-content h1 {
             font-size: 3.5rem;
             font-family: 'Playfair Display', serif;
-            color: var(--deep-leaf);
+            color: #754E42;
             margin-bottom: 1rem;
+            font-weight: 500;
         }
 
         .hero-content p {
-            font-size: 1.2rem;
-            color: var(--stone-taupe);
-            line-height: 1.6;
+            font-size: 1.15rem;
+            color: #836B62;
+            line-height: 1.7;
         }
 
         /* Pricing Section */
         .pricing-section {
-            background: var(--cream-white);
-            min-height: auto;
+            background: var(--cream-latte);
         }
 
         .section-title {
             font-size: 2.5rem;
             font-family: 'Playfair Display', serif;
             text-align: center;
-            color: var(--deep-leaf);
+            color: #674E42;
             margin-bottom: 0.5rem;
+            font-weight: 500;
         }
 
         .section-title:after {
-            content: '';
+            content: '🌸';
             display: block;
-            width: 70px;
-            height: 3px;
-            background: var(--blush-pink);
-            margin: 1rem auto 0;
-            border-radius: 3px;
+            font-size: 1.8rem;
+            letter-spacing: 6px;
+            background: none;
+            margin: 0.6rem auto 0;
         }
 
         .section-subtitle {
             text-align: center;
-            color: var(--stone-taupe);
+            color: #9B7A6E;
             margin-bottom: 3rem;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .price-card {
-            background: var(--warm-beige);
-            border-radius: 2rem;
-            padding: 2rem;
+            background: white;
+            border-radius: 44px;
+            padding: 2.2rem 1.8rem;
             text-align: center;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--soft-sand);
-            transition: all 0.3s;
+            box-shadow: 0 20px 35px -15px rgba(100, 70, 60, 0.08);
+            border: 1px solid #F5E0D7;
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             position: relative;
             overflow: hidden;
         }
 
         .price-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--blush-pink);
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+            transform: translateY(-12px);
+            border-color: #EEC5B8;
+            box-shadow: 0 28px 36px -12px rgba(139, 84, 72, 0.18);
         }
 
         .price-card.featured {
-            border: 2px solid var(--golden-amber);
-            background: linear-gradient(135deg, var(--warm-beige) 0%, #fff8f0 100%);
+            border: 2px solid #EFC8B3;
+            background: linear-gradient(135deg, white, #FFFBF5);
         }
 
         .featured-badge {
             position: absolute;
             top: 0;
             right: 0;
-            background: var(--golden-amber);
-            color: var(--deep-leaf);
+            background: linear-gradient(105deg, #D9A78E, #C2866E);
+            color: white;
             font-size: 0.7rem;
-            font-weight: 700;
-            padding: 5px 15px;
-            border-radius: 0 2rem 0 2rem;
+            font-weight: 600;
+            padding: 6px 18px;
+            border-radius: 0 44px 0 44px;
             text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .price-card i {
+            font-size: 2.5rem;
+            color: #BE8A7A;
+            margin-bottom: 1rem;
         }
 
         .price-card h3 {
             font-size: 1.6rem;
-            color: var(--deep-leaf);
+            font-weight: 600;
+            color: #6B4A3E;
             margin-bottom: 0.5rem;
         }
 
         .price-amount {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
-            color: var(--amber-deep);
-            margin: 1rem 0;
+            color: #C2866E;
+            margin: 0.8rem 0;
+            font-family: 'Playfair Display', serif;
         }
 
         .price-desc {
-            color: var(--stone-taupe);
+            color: #8D6F63;
             margin-bottom: 0.8rem;
-            line-height: 1.5;
+            line-height: 1.6;
+            font-size: 0.9rem;
         }
 
         .badge {
-            background: var(--soft-sand);
+            background: #F4EAE3;
             display: inline-block;
-            padding: 4px 14px;
-            border-radius: 30px;
+            padding: 5px 16px;
+            border-radius: 40px;
             font-size: 0.7rem;
             font-weight: 600;
-            margin-top: 0.5rem;
-            color: var(--deep-leaf);
+            margin-top: 0.8rem;
+            color: #8D6152;
         }
 
         /* Info Boxes */
         .info-box {
-            background: var(--warm-beige);
-            border-radius: 2rem;
-            padding: 1.8rem;
+            background: white;
+            border-radius: 44px;
+            padding: 2rem;
             margin-top: 2rem;
             text-align: center;
-            border: 1px solid var(--soft-sand);
+            border: 1px solid #F5E0D7;
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .info-box.special {
-            background: linear-gradient(135deg, var(--golden-amber) 0%, var(--amber-deep) 100%);
+            background: linear-gradient(110deg, #F7E7DF, #FEE9E1);
             border: none;
         }
 
         .info-box.special i, .info-box.special strong {
-            color: var(--deep-leaf);
+            color: #8D6152;
+        }
+
+        /* UNIQUE FEATURE: Savings Calculator */
+        .savings-calculator {
+            background: white;
+            border-radius: 44px;
+            padding: 2rem;
+            margin-top: 2.5rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid #F5E0D7;
+        }
+
+        .calculator-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .calculator-title h3 {
+            font-family: 'Playfair Display', serif;
+            color: #754E42;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .calculator-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .calc-group {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .calc-group label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            color: #8D6152;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .calc-group select, .calc-group input {
+            width: 100%;
+            padding: 12px 18px;
+            border-radius: 60px;
+            border: 1.5px solid #F0DFD6;
+            font-family: 'Inter', sans-serif;
+            background: #FFFDFB;
+            font-size: 0.9rem;
+        }
+
+        .savings-result {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(125deg, #FDF3EF, #FCEAE4);
+            border-radius: 36px;
+        }
+
+        .savings-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #C2866E;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .savings-note {
+            font-size: 0.8rem;
+            color: #A98D80;
+            margin-top: 0.5rem;
         }
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--muted-leaf) 0%, var(--deep-leaf) 100%);
+            background: linear-gradient(110deg, #F7E7DF, #FEE9E1);
             min-height: 35vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: "✦ ˚ ༘ ೀ⋆｡˚";
+            font-size: 10rem;
+            bottom: -5%;
+            right: -3%;
+            position: absolute;
+            opacity: 0.1;
         }
 
         .cta-content {
             text-align: center;
             max-width: 700px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .cta-content h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-family: 'Playfair Display', serif;
-            color: var(--golden-amber);
+            color: #6B463B;
             margin-bottom: 1rem;
         }
 
         .cta-content p {
-            color: var(--warm-beige);
-            margin-bottom: 1.5rem;
+            color: #7A5A4E;
         }
 
         .btn-primary {
-            background: var(--golden-amber);
+            background: linear-gradient(105deg, #D9A78E, #C2866E);
             border: none;
-            padding: 14px 36px;
+            padding: 14px 38px;
             border-radius: 50px;
-            color: var(--deep-leaf);
-            font-weight: 700;
-            font-size: 1rem;
+            color: white;
+            font-weight: 600;
+            font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.3s;
             display: inline-block;
             text-decoration: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+            box-shadow: 0 6px 14px rgba(162, 106, 106, 0.25);
         }
 
         .btn-primary:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-            background: var(--amber-deep);
+            box-shadow: 0 12px 24px rgba(162, 106, 106, 0.35);
         }
 
         /* Footer */
         footer {
-            background: var(--deep-leaf);
-            color: var(--warm-beige);
-            padding: 3rem 8% 1.5rem;
+            background: #F2E3DB;
+            color: #60473D;
+            padding: 3rem 6% 1.5rem;
+            border-top: 2px solid #FFF5EF;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
             max-width: 1300px;
             margin: 0 auto;
         }
@@ -423,61 +604,57 @@
         .footer-col h4 {
             font-family: 'Playfair Display', serif;
             margin-bottom: 1rem;
-            color: var(--golden-amber);
+            color: #8D6152;
+            font-weight: 500;
         }
 
         .footer-col a, .footer-col p {
-            color: var(--warm-beige);
+            color: #786155;
             text-decoration: none;
             line-height: 1.8;
             font-size: 0.85rem;
-            display: block;
+            transition: 0.2s;
         }
 
         .footer-col a:hover {
-            color: var(--blush-pink);
+            color: #C4836E;
             padding-left: 5px;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             margin-top: 1rem;
         }
 
         .social-links a {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(156, 108, 92, 0.12);
             width: 36px;
             height: 36px;
-            border-radius: 50%;
+            border-radius: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
+            transition: 0.25s;
+            color: #8D6152;
         }
 
         .social-links a:hover {
-            background: var(--blush-pink);
-            color: var(--deep-leaf);
-            transform: translateY(-3px);
+            background: #EFC8B3;
+            color: white;
+            transform: scale(1.05);
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(220, 193, 120, 0.2);
+            border-top: 1px solid #EED6CB;
             margin-top: 2rem;
+            font-size: 0.8rem;
         }
 
         /* Responsive */
         @media (max-width: 900px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            .full-section {
-                padding: 3rem 6%;
-                min-height: auto;
-            }
             .menu-toggle {
                 display: block;
             }
@@ -486,11 +663,12 @@
                 width: 100%;
                 flex-direction: column;
                 align-items: center;
-                background: rgba(30, 40, 28, 0.95);
-                backdrop-filter: blur(12px);
-                padding: 1.5rem;
-                border-radius: 1.5rem;
-                margin-top: 0.5rem;
+                gap: 1.2rem;
+                background: rgba(255, 248, 244, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 1.8rem;
+                border-radius: 32px;
+                margin-top: 1rem;
             }
             .nav-links.show {
                 display: flex;
@@ -501,11 +679,17 @@
             body {
                 padding-bottom: 70px;
             }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
             .section-title {
                 font-size: 2rem;
             }
+            .full-section {
+                padding: 3rem 5%;
+            }
             .price-amount {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
         }
 
@@ -516,46 +700,41 @@
             .price-card h3 {
                 font-size: 1.3rem;
             }
+            .nav-call {
+                padding: 6px 14px;
+                font-size: 0.75rem;
+            }
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 248, 244, 0.98);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+            padding: 0.9rem 6%;
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggleBtn = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            if (toggleBtn) {
-                toggleBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
-            }
-            const currentPage = window.location.pathname.split('/').pop() || 'pricing.html';
-            document.querySelectorAll('.nav-links a, .dock-item').forEach(link => {
-                const href = link.getAttribute('href');
-                if (href === currentPage || (currentPage === 'pricing.html' && href === 'pricing.html')) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
 </head>
 <body>
 
 <!-- STICKY HEADER -->
 <nav class="navbar">
     <a href="home.html" class="logo-area">
-        <div class="logo-icon"><i class="fas fa-palm-tree"></i></div>
+        <div class="logo-icon"><i class="fas fa-feather-alt"></i></div>
         <div class="logo-text">
-            <h1>PEACEFUL PALMS</h1>
-            <p>MOBILE SPA ✦ WE COME TO YOU</p>
+            <h1>Peaceful Palms</h1>
+            <p>MOBILE SPA ATELIER</p>
         </div>
     </a>
-    <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+ 
     <div class="nav-links">
         <a href="home.html">Home</a>
         <a href="services.html">Services</a>
-        <a href="gift.html">Gift Voucher</a>
+        <a href="gift.html">Gift Essence</a>
         <a href="pricing.html" class="active">Pricing</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html">Connect</a>
     </div>
+  
 </nav>
 
 <!-- MOBILE DOCK -->
@@ -564,62 +743,69 @@
     <a href="services.html" class="dock-item"><i class="fas fa-spa"></i><span>Services</span></a>
     <a href="gift.html" class="dock-item"><i class="fas fa-gift"></i><span>Gift</span></a>
     <a href="pricing.html" class="dock-item active"><i class="fas fa-tag"></i><span>Pricing</span></a>
-    <a href="contact.html" class="dock-item"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    <a href="contact.html" class="dock-item"><i class="fas fa-envelope"></i><span>Connect</span></a>
 </div>
 
 <main>
-    <!-- ========= HERO SECTION with Background Image ========= -->
+    <!-- HERO SECTION -->
     <section class="full-section hero-section">
         <div class="hero-content">
-            <h1>Mindful Pricing<br>Mobile Luxury</h1>
-            <p>Transparent, fair prices for premium spa experiences delivered to your doorstep. No hidden fees, just pure relaxation.</p>
+            <span class="hero-badge">✦ MINDFUL INVESTMENT ✦</span>
+            <h1>Pricing & Packages</h1>
+            <p>Transparent, fair prices for premium mobile spa experiences. No hidden fees, just pure relaxation delivered to your door.</p>
         </div>
     </section>
 
-    <!-- ========= PRICING GRID SECTION ========= -->
+    <!-- PRICING GRID SECTION -->
     <section class="full-section pricing-section">
         <div style="width: 100%;">
-            <h2 class="section-title">Our Treatment Packages</h2>
+            <h2 class="section-title">Our Treatment Rituals</h2>
             <p class="section-subtitle">Choose the perfect spa experience for your needs</p>
             
             <div class="pricing-grid">
                 <div class="price-card featured">
-                    <div class="featured-badge">Most Popular</div>
+                    <div class="featured-badge">Most Beloved</div>
+                    <i class="fas fa-hand-holding-heart"></i>
                     <h3>Signature Massage</h3>
                     <div class="price-amount">R650</div>
-                    <p class="price-desc">Swedish or Deep Tissue<br>60 minutes of pure bliss</p>
+                    <p class="price-desc">Swedish or Deep Tissue • 60 minutes of pure bliss with organic oils</p>
                     <div class="badge">Best value</div>
                 </div>
                 
                 <div class="price-card">
-                    <h3>Hot Stone Therapy</h3>
+                    <i class="fas fa-gem"></i>
+                    <h3>Hot Stone Ceremony</h3>
                     <div class="price-amount">R850</div>
-                    <p class="price-desc">75 min with lava stones + aromatherapy</p>
+                    <p class="price-desc">75 min with warm basalt stones + aromatherapy</p>
                     <div class="badge">Deep relaxation</div>
                 </div>
                 
                 <div class="price-card">
-                    <h3>Express Facial</h3>
+                    <i class="fas fa-smile-beam"></i>
+                    <h3>Express Radiance</h3>
                     <div class="price-amount">R490</div>
-                    <p class="price-desc">30 min radiance boost + scalp massage</p>
+                    <p class="price-desc">30 min facial boost + pressure point scalp massage</p>
                     <div class="badge">Quick glow</div>
                 </div>
                 
                 <div class="price-card">
-                    <h3>Couples Experience</h3>
-                    <div class="price-amount">R1600</div>
-                    <p class="price-desc">90 min each, two therapists, side-by-side</p>
+                    <i class="fas fa-praying-hands"></i>
+                    <h3>Couples Harmony</h3>
+                    <div class="price-amount">R1,600</div>
+                    <p class="price-desc">90 min each • Two therapists • Side-by-side bliss</p>
                     <div class="badge">Romantic getaway</div>
                 </div>
                 
                 <div class="price-card">
+                    <i class="fas fa-hand-sparkles"></i>
                     <h3>Full Day Pamper</h3>
-                    <div class="price-amount">R2200</div>
-                    <p class="price-desc">Massage + body scrub + facial (2.5 hrs)</p>
+                    <div class="price-amount">R2,200</div>
+                    <p class="price-desc">Massage + scrub + facial (2.5 hours of indulgence)</p>
                     <div class="badge">Ultimate luxury</div>
                 </div>
                 
                 <div class="price-card">
+                    <i class="fas fa-calendar-alt"></i>
                     <h3>Mobile Event Spa</h3>
                     <div class="price-amount">Quote</div>
                     <p class="price-desc">Hen dos, bridal parties, corporate wellness</p>
@@ -629,35 +815,63 @@
 
             <!-- Travel Fee Info -->
             <div class="info-box">
-                <i class="fas fa-truck" style="font-size: 1.5rem; color: var(--muted-leaf); margin-bottom: 0.5rem; display: inline-block;"></i>
+                <i class="fas fa-truck" style="font-size: 1.5rem; color: #BE8A7A; margin-bottom: 0.5rem; display: inline-block;"></i>
                 <p><strong>Travel fee:</strong> FREE within 20km of Cape Town CBD. Additional distance: R150 flat fee.</p>
                 <p style="margin-top: 0.5rem;"><i class="fas fa-credit-card"></i> Gift vouchers available for any amount or specific service. Contact us for corporate packages.</p>
             </div>
 
+            <!-- UNIQUE FEATURE: Interactive Savings Calculator -->
+            <div class="savings-calculator">
+                <div class="calculator-title">
+                    <h3><i class="fas fa-calculator"></i> Savings Calculator</h3>
+                    <p style="font-size: 0.85rem; color: #A98D80;">See how much you save with our bundle offers</p>
+                </div>
+                <div class="calculator-controls">
+                    <div class="calc-group">
+                        <label><i class="fas fa-spa"></i> Choose Treatment</label>
+                        <select id="calcTreatment">
+                            <option value="650">Signature Massage (R650)</option>
+                            <option value="850">Hot Stone Therapy (R850)</option>
+                            <option value="490">Express Facial (R490)</option>
+                            <option value="1600">Couples Experience (R1600)</option>
+                            <option value="2200">Full Day Pamper (R2200)</option>
+                        </select>
+                    </div>
+                    <div class="calc-group">
+                        <label><i class="fas fa-shopping-cart"></i> Quantity</label>
+                        <input type="number" id="calcQuantity" min="1" max="10" value="3">
+                    </div>
+                </div>
+                <div class="savings-result" id="savingsResult">
+                    <div class="savings-amount" id="savingsAmount">—</div>
+                    <div class="savings-note" id="savingsNote">Buy 3 massages and get 1 free! Adjust quantity to see your savings.</div>
+                </div>
+            </div>
+
             <!-- Special Offer -->
             <div class="info-box special">
-                <i class="fas fa-gift" style="font-size: 1.8rem; color: var(--deep-leaf); margin-bottom: 0.5rem; display: inline-block;"></i>
+                <i class="fas fa-gift" style="font-size: 1.8rem; margin-bottom: 0.5rem; display: inline-block;"></i>
                 <p><strong>🎁 Special Offer:</strong> Buy 3 massages and get 1 free! Valid for 6 months. Perfect for sharing or treating yourself.</p>
             </div>
         </div>
     </section>
 
-    <!-- ========= CTA SECTION ========= -->
+    <!-- CTA SECTION -->
     <section class="full-section cta-section">
         <div class="cta-content">
             <h2>Ready to Book Your Spa Experience?</h2>
             <p>Contact us to schedule your mobile spa session. We'll help you choose the perfect treatment for your needs.</p>
-            <a href="contact.html" class="btn-primary">Book Now →</a>
+            <a href="contact.html" class="btn-primary">Begin Your Journey →</a>
         </div>
     </section>
 </main>
 
-<!-- FULL PROFESSIONAL FOOTER -->
+<!-- FOOTER -->
 <footer>
     <div class="footer-grid">
         <div class="footer-col">
             <h4>Peaceful Palms</h4>
-            <p>Luxury mobile spa services delivered to your doorstep. Relax, restore, and rejuvenate wherever you are.</p>
+            <p>Mobile spa blending elegance, organic botanics & the art of slow living — delivered to your door with love.</p>
             <div class="social-links">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
@@ -666,31 +880,94 @@
             </div>
         </div>
         <div class="footer-col">
-            <h4>Quick Links</h4>
-            <a href="home.html">Home</a>
-            <a href="services.html">All Services</a>
+            <h4>Moments</h4>
+            <a href="home.html">Sanctuary</a>
+            <a href="services.html">All Rituals</a>
             <a href="gift.html">Gift Vouchers</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="pricing.html">Investment</a>
+            <a href="contact.html">Begin Journey</a>
         </div>
         <div class="footer-col">
-            <h4>Contact Info</h4>
+            <h4>Whisper to Us</h4>
             <p><i class="fas fa-phone-alt"></i> 067 870 8737</p>
             <p><i class="fab fa-whatsapp"></i> 067 870 8737 (WhatsApp)</p>
             <p><i class="fas fa-envelope"></i> hello@peacefulpalms.co.za</p>
             <p><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
         </div>
         <div class="footer-col">
-            <h4>Opening Hours</h4>
-            <p>Monday – Sunday: 8:00 – 21:00</p>
-            <p>Late bookings on request</p>
-            <p>Emergency/Last-minute: call us</p>
+            <h4>Blooming Hours</h4>
+            <p>Monday – Sunday: 8am – 9pm</p>
+            <p>Moonlight bookings on request</p>
+            <p>Last-minute? Just call us 🌙</p>
         </div>
     </div>
     <div class="footer-bottom">
-        <p>© 2026 Peaceful Palms Mobile Spa — All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--blush-pink);"></i> for serenity</p>
-        <p style="margin-top: 8px;">We come to you — Mobile spa experience, professional therapists, organic products.</p>
+        <p>© 2026 Peaceful Palms — feminine mobile spa atelier. Crafted with <i class="fas fa-heart" style="color: #C28471;"></i> & moonlight.</p>
+        <p style="margin-top: 6px;">Wherever you are, serenity arrives.</p>
     </div>
 </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('show');
+                const spans = document.querySelectorAll('.hamburger span');
+                if (navLinks.classList.contains('show')) {
+                    spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+        }
+
+        // Scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Savings Calculator
+        const treatmentSelect = document.getElementById('calcTreatment');
+        const quantityInput = document.getElementById('calcQuantity');
+        const savingsAmountSpan = document.getElementById('savingsAmount');
+        const savingsNoteSpan = document.getElementById('savingsNote');
+
+        function updateSavings() {
+            const price = parseInt(treatmentSelect.value);
+            let quantity = parseInt(quantityInput.value);
+            if (isNaN(quantity) || quantity < 1) quantity = 1;
+            
+            // Buy 3 get 1 free logic
+            const freeItems = Math.floor(quantity / 4);
+            const paidItems = quantity - freeItems;
+            const regularTotal = price * quantity;
+            const discountedTotal = price * paidItems;
+            const savings = regularTotal - discountedTotal;
+            
+            savingsAmountSpan.innerHTML = `You save R${savings.toLocaleString()}`;
+            if (freeItems > 0) {
+                savingsNoteSpan.innerHTML = `✨ Buy 3 get 1 free applied! You get ${freeItems} free session${freeItems > 1 ? 's' : ''}. Pay for ${paidItems} instead of ${quantity}. ✨`;
+            } else {
+                savingsNoteSpan.innerHTML = `Buy 3 massages and get 1 free! Add ${4 - (quantity % 4)} more to get a free session.`;
+            }
+        }
+
+        treatmentSelect.addEventListener('change', updateSavings);
+        quantityInput.addEventListener('input', updateSavings);
+        updateSavings();
+    });
+</script>
 </body>
 </html>

@@ -315,6 +315,7 @@
         /* Gift Form Section */
         .form-section {
             background: var(--cream-latte);
+            min-height: auto;
         }
 
         .section-title {
@@ -353,6 +354,7 @@
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
+            transition: all 0.3s ease;
         }
 
         .toggle-group {
@@ -445,6 +447,26 @@
             box-shadow: 0 12px 24px rgba(194, 134, 110, 0.35);
         }
 
+        .btn-secondary {
+            background: transparent;
+            border: 1.5px solid #D9A78E;
+            padding: 12px 28px;
+            border-radius: 60px;
+            color: #C2866E;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+            margin-top: 1rem;
+            width: auto;
+        }
+
+        .btn-secondary:hover {
+            background: #F9EDE6;
+            transform: translateY(-2px);
+        }
+
         .custom-date-wrapper {
             margin-top: 12px;
             display: none;
@@ -469,6 +491,10 @@
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
             border: 1px solid #F0DFD6;
+        }
+
+        .voucher-preview.hidden {
+            display: none;
         }
 
         .secret-message-area {
@@ -518,6 +544,11 @@
             font-style: italic;
             color: #9B6B5A;
             font-size: 0.95rem;
+        }
+
+        .create-new-btn {
+            text-align: center;
+            margin-top: 1.5rem;
         }
 
         /* CTA Section */
@@ -694,30 +725,21 @@
             <p>MOBILE SPA ATELIER</p>
         </div>
     </a>
-    <button class="menu-toggle" aria-label="Menu">
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </button>
+  
     <div class="nav-links">
-        <a href="home.html">Sanctuary</a>
-        <a href="services.html">Rituals</a>
+        <a href="home.html">Home</a>
+        <a href="services.html">Services</a>
         <a href="gift.html" class="active">Gift Essence</a>
         <a href="pricing.html">Pricing</a>
         <a href="contact.html">Connect</a>
     </div>
-    <div class="nav-actions">
-        <a href="tel:+27678708737" class="nav-call">Book Now</a>
-        <a href="gift.html" class="nav-gift">Gift</a>
-    </div>
+
 </nav>
 
 <!-- MOBILE DOCK -->
 <div class="mobile-dock">
     <a href="home.html" class="dock-item"><i class="fas fa-home"></i><span>Home</span></a>
-    <a href="services.html" class="dock-item"><i class="fas fa-spa"></i><span>Rituals</span></a>
+    <a href="services.html" class="dock-item"><i class="fas fa-spa"></i><span>Services</span></a>
     <a href="gift.html" class="dock-item active"><i class="fas fa-gift"></i><span>Gift</span></a>
     <a href="pricing.html" class="dock-item"><i class="fas fa-tag"></i><span>Pricing</span></a>
     <a href="contact.html" class="dock-item"><i class="fas fa-envelope"></i><span>Connect</span></a>
@@ -734,12 +756,13 @@
     </section>
 
     <!-- GIFT CARD FORM SECTION -->
-    <section class="full-section form-section">
+    <section class="full-section form-section" style="background: url('./images/landing\ page.png');">
         <div style="width: 100%;">
             <h2 class="section-title">Create Your Personalised Voucher</h2>
             <p class="sub-headline">Fill in the details to generate a beautiful, shareable gift card</p>
 
-            <div class="gift-card-form">
+            <!-- Form Container -->
+            <div id="formContainer" class="gift-card-form">
                 <div class="toggle-group">
                     <button id="selfToggle" class="toggle-btn active">🌸 For myself / owner</button>
                     <button id="otherToggle" class="toggle-btn">🎁 For someone special</button>
@@ -748,22 +771,22 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label><i class="far fa-user"></i> TO</label>
-                        <input type="text" id="giftTo" placeholder="Recipient's name" autocomplete="off">
+                        <input type="text" id="giftTo" placeholder="Recipient's name" autocomplete="off" value="">
                     </div>
                     <div class="form-group">
                         <label><i class="fas fa-heart"></i> FROM</label>
-                        <input type="text" id="giftFrom" placeholder="Your name" autocomplete="off">
+                        <input type="text" id="giftFrom" placeholder="Your name" autocomplete="off" value="">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label><i class="fas fa-tag"></i> VALUE (ZAR)</label>
-                        <input type="text" id="giftValue" placeholder="e.g., 650, 1200, 2500" autocomplete="off">
+                        <input type="text" id="giftValue" placeholder="e.g., 650, 1200, 2500" autocomplete="off" value="">
                     </div>
                     <div class="form-group">
                         <label><i class="fas fa-spa"></i> SERVICE NAME</label>
-                        <input type="text" id="giftService" placeholder="e.g., Hot Stone Massage, Couples Retreat" autocomplete="off">
+                        <input type="text" id="giftService" placeholder="e.g., Hot Stone Massage, Couples Retreat" autocomplete="off" value="">
                     </div>
                 </div>
 
@@ -799,12 +822,9 @@
                 </div>
             </div>
 
-            <!-- VOUCHER PREVIEW SECTION with Secret Message Reveal Feature -->
-            <div id="voucherPreviewArea" class="voucher-preview">
-                <div style="text-align: center; color: #A98D80; padding: 3rem 2rem;">
-                    <i class="fas fa-palm-tree" style="font-size: 2.5rem; opacity: 0.4; margin-bottom: 1rem; display: block;"></i>
-                    <p>Fill in the details above and click "Generate Spa Voucher"<br>to see your beautiful personalised gift card.</p>
-                </div>
+            <!-- VOUCHER PREVIEW SECTION - Initially hidden -->
+            <div id="voucherPreviewArea" class="voucher-preview hidden">
+                <!-- Generated voucher will appear here -->
             </div>
         </div>
     </section>
@@ -891,7 +911,7 @@
             }
         });
 
-        // Gift card logic
+        // Gift card logic - NO DEFAULT VALUES
         const selfToggle = document.getElementById('selfToggle');
         const otherToggle = document.getElementById('otherToggle');
         const toInput = document.getElementById('giftTo');
@@ -903,6 +923,7 @@
         const customDateWrapper = document.getElementById('customDateWrapper');
         const customDateInput = document.getElementById('customExpiryDate');
         const generateBtn = document.getElementById('generateVoucherBtn');
+        const formContainer = document.getElementById('formContainer');
         const previewArea = document.getElementById('voucherPreviewArea');
 
         function getMaxDate() {
@@ -979,15 +1000,27 @@
             if (validitySelect.value === 'custom') setCustomDateLimits();
         });
 
+        function resetForm() {
+            // Show form, hide preview
+            formContainer.style.display = 'block';
+            previewArea.classList.add('hidden');
+            previewArea.innerHTML = '';
+        }
+
         function generateGiftCard() {
-            let toVal = toInput.value.trim() || "Beloved Soul";
-            let fromVal = fromInput.value.trim() || "Peaceful Palms";
+            // Get values (empty strings allowed - they will show as placeholders)
+            let toVal = toInput.value.trim();
+            let fromVal = fromInput.value.trim();
             let rawValue = valueInput.value.trim();
             let serviceVal = serviceInput.value.trim();
             let secretMsg = secretMessageInput.value.trim();
             
-            let valueDisplay = rawValue === "" ? "A Special Treat" : `R ${rawValue}`;
-            let serviceDisplay = serviceVal === "" ? "Spa Ritual of Your Choice" : serviceVal;
+            // Set display values - use "______" for empty fields to show they're blank
+            let toDisplay = toVal === "" ? "______" : escapeHtml(toVal);
+            let fromDisplay = fromVal === "" ? "______" : escapeHtml(fromVal);
+            let valueDisplay = rawValue === "" ? "______" : `R ${escapeHtml(rawValue)}`;
+            let serviceDisplay = serviceVal === "" ? "______" : escapeHtml(serviceVal);
+            let secretDisplay = secretMsg === "" ? "Wishing you peace, relaxation, and beautiful moments of self-care. Enjoy your spa journey." : escapeHtml(secretMsg);
             const expiryFinal = getExpiryDateString();
             
             const cardHTML = `
@@ -1006,19 +1039,19 @@
                         <div style="margin-bottom: 1.5rem;">
                             <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #F0DFD6; padding: 12px 0;">
                                 <span style="font-weight: 700; color: #754E42;">TO</span>
-                                <span style="color: #9B6B5A; font-weight: 500;">${escapeHtml(toVal)}</span>
+                                <span style="color: #9B6B5A; font-weight: 500;">${toDisplay}</span>
                             </div>
                             <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #F0DFD6; padding: 12px 0;">
                                 <span style="font-weight: 700; color: #754E42;">FROM</span>
-                                <span style="color: #9B6B5A; font-weight: 500;">${escapeHtml(fromVal)}</span>
+                                <span style="color: #9B6B5A; font-weight: 500;">${fromDisplay}</span>
                             </div>
                             <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #F0DFD6; padding: 12px 0;">
                                 <span style="font-weight: 700; color: #754E42;">VALUE</span>
-                                <span style="color: #C2866E; font-weight: 700;">${escapeHtml(valueDisplay)}</span>
+                                <span style="color: #C2866E; font-weight: 700;">${valueDisplay}</span>
                             </div>
                             <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #F0DFD6; padding: 12px 0;">
                                 <span style="font-weight: 700; color: #754E42;">SERVICE</span>
-                                <span style="color: #8D6F63;">${escapeHtml(serviceDisplay)}</span>
+                                <span style="color: #8D6F63;">${serviceDisplay}</span>
                             </div>
                             <div style="display: flex; justify-content: space-between; padding: 12px 0;">
                                 <span style="font-weight: 700; color: #754E42;">VALID UNTIL</span>
@@ -1040,14 +1073,23 @@
                         <div class="secret-message-content" id="secretContent">
                             <div class="secret-message-text">
                                 <i class="fas fa-quote-left" style="opacity: 0.5; margin-right: 5px;"></i>
-                                ${secretMsg ? escapeHtml(secretMsg) : "Wishing you peace, relaxation, and beautiful moments of self-care. Enjoy your spa journey."}
+                                ${secretDisplay}
                                 <i class="fas fa-quote-right" style="opacity: 0.5; margin-left: 5px;"></i>
                             </div>
                         </div>
                     </div>
+                    <div class="create-new-btn">
+                        <button id="createNewVoucherBtn" class="btn-secondary">
+                            <i class="fas fa-plus"></i> Create New Voucher
+                        </button>
+                    </div>
                 </div>
             `;
+            
+            // Hide form, show preview with generated voucher
+            formContainer.style.display = 'none';
             previewArea.innerHTML = cardHTML;
+            previewArea.classList.remove('hidden');
             
             // Attach secret message reveal functionality
             const secretArea = document.getElementById('secretRevealArea');
@@ -1059,6 +1101,18 @@
                     if (secretIcon) {
                         secretIcon.style.transform = secretContent.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
                     }
+                });
+            }
+            
+            // Attach create new button functionality
+            const createNewBtn = document.getElementById('createNewVoucherBtn');
+            if (createNewBtn) {
+                createNewBtn.addEventListener('click', function() {
+                    formContainer.style.display = 'block';
+                    previewArea.classList.add('hidden');
+                    previewArea.innerHTML = '';
+                    // Scroll back to form
+                    formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 });
             }
         }
@@ -1080,15 +1134,7 @@
         setCustomDateLimits();
         updateCustomDateVisibility();
         
-        // Auto-generate on page load with sample data
-        setTimeout(() => {
-            toInput.value = "Sarah";
-            fromInput.value = "Peaceful Palms";
-            valueInput.value = "1200";
-            serviceInput.value = "Signature Hot Stone Massage";
-            secretMessageInput.value = "You deserve this moment of peace. Let the world wait while you rest and restore. With love, The Peaceful Palms Team 🌸";
-            generateGiftCard();
-        }, 100);
+        // No auto-generation on load - form is empty and ready for user input
     });
 </script>
 </body>
