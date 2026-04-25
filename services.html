@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Peaceful Palms | Mobile Spa Services – Luxury Treatments At Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #FFF8F5;
+            color: #5E4B3C;
+            overflow-x: hidden;
+        }
+
+        /* Refined feminine palette */
+        :root {
+            --petal-white: #FFF9F7;
+            --rose-blush: #FCE4E0;
+            --dusted-rose: #EECDC9;
+            --cashmere-beige: #F4EAE3;
+            --mauve-sand: #E2D4CD;
+            --deep-rosewood: #A26A6A;
+            --soft-lavender: #D1C3D4;
+            --plum-brown: #704C4C;
+            --golden-nectar: #EFC8B3;
+            --warm-clay: #CBA48F;
+            --cream-latte: #FEF6F0;
+            --quiet-moss: #8A9A7B;
+            --shadow-rose: rgba(162, 106, 106, 0.08);
+        }
+
+        /* ========= STICKY HEADER - matching homepage ========= */
+        .navbar {
+            background: rgba(255, 248, 244, 0.96);
+            backdrop-filter: blur(20px);
+            padding: 1.2rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(194, 134, 110, 0.12);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .logo-area:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #F9E0D2, #F2CFBF);
+            border-radius: 32% 68% 70% 30% / 44% 40% 60% 56%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 22px rgba(162, 106, 106, 0.12);
+            transition: all 0.3s;
+        }
+
+        .logo-icon i {
+            font-size: 1.8rem;
+            color: #C2866E;
+        }
+
+        .logo-text h1 {
+            font-size: 1.65rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            background: linear-gradient(135deg, #9E6D5E, #7A4C44);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            font-size: 0.68rem;
+            letter-spacing: 3px;
+            color: #C2866E;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #8B6B60;
+            transition: all 0.25s ease;
+            position: relative;
+            padding: 8px 0;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background: linear-gradient(90deg, #D9A78E, #C2866E);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #C67A62;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-call {
+            background: linear-gradient(105deg, #D9A78E, #C2866E);
+            padding: 10px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            box-shadow: 0 6px 16px rgba(194, 134, 110, 0.25);
+            white-space: nowrap;
+        }
+
+        .nav-call:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(194, 134, 110, 0.35);
+            background: linear-gradient(105deg, #E2B59E, #D3977D);
+        }
+
+        .nav-gift {
+            background: transparent;
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #C2866E;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 1.5px solid rgba(194, 134, 110, 0.4);
+            white-space: nowrap;
+        }
+
+        .nav-gift:hover {
+            background: #C2866E;
+            color: white;
+            border-color: #C2866E;
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger {
+            width: 28px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 2px;
+            background: #C2866E;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        /* ========= MOBILE DOCK ========= */
+        .mobile-dock {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(249, 239, 233, 0.96);
+            backdrop-filter: blur(22px);
+            padding: 0.7rem 1rem;
+            justify-content: space-around;
+            z-index: 1000;
+            border-top: 1px solid rgba(206, 154, 141, 0.4);
+            border-radius: 28px 28px 0 0;
+            box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.02);
+        }
+
+        .dock-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #B18B7E;
+            font-size: 0.65rem;
+            gap: 4px;
+            padding: 6px 14px;
+            border-radius: 60px;
+            transition: all 0.2s;
+        }
+
+        .dock-item i {
+            font-size: 1.25rem;
+        }
+
+        .dock-item.active, .dock-item:hover {
+            color: #BA7A6A;
+            background: rgba(239, 200, 179, 0.35);
+        }
+
+        /* ========= FULL SECTIONS ========= */
+        .full-section {
+            width: 100%;
+            padding: 5rem 6%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(125deg, #FDF3EF 0%, #FCEAE4 100%);
+            position: relative;
+            min-height: 55vh;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: "✧ ˚₊‧⁺˖";
+            font-size: 22rem;
+            position: absolute;
+            bottom: -15%;
+            right: -10%;
+            font-family: monospace;
+            opacity: 0.08;
+            color: #B07C6C;
+            pointer-events: none;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 40%, rgba(249, 225, 215, 0.2) 0%, rgba(253, 243, 239, 0) 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(239, 200, 179, 0.25);
+            backdrop-filter: blur(8px);
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: #B57A64;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(194, 134, 110, 0.3);
+        }
+
+        .hero-content h1 {
+            font-size: 3.8rem;
+            font-family: 'Playfair Display', serif;
+            color: #754E42;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: #836B62;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Services Section */
+        .services-section {
+            background: var(--cream-latte);
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            color: #674E42;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .section-title:after {
+            content: '🌸';
+            display: block;
+            font-size: 1.8rem;
+            letter-spacing: 6px;
+            background: none;
+            margin: 0.6rem auto 0;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #9B7A6E;
+            margin-bottom: 3.5rem;
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 44px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 20px 35px -15px rgba(100, 70, 60, 0.08);
+            border: 1px solid #F5E0D7;
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            border-color: #EEC5B8;
+            box-shadow: 0 28px 36px -12px rgba(139, 84, 72, 0.18);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: #BE8A7A;
+            margin-bottom: 1.2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #6B4A3E;
+        }
+
+        .service-desc {
+            color: #8D6F63;
+            margin: 0.8rem 0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .service-duration {
+            font-size: 0.85rem;
+            color: #C2866E;
+            font-weight: 600;
+            margin-top: 1.2rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #EED6CB;
+            display: inline-block;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(110deg, #F7E7DF, #FEE9E1);
+            min-height: 45vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: "✦ ˚ ༘ ೀ⋆｡˚";
+            font-size: 12rem;
+            bottom: -5%;
+            right: -3%;
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .cta-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-size: 2.3rem;
+            font-family: 'Playfair Display', serif;
+            color: #6B463B;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            color: #7A5A4E;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .btn-primary {
+            background: linear-gradient(105deg, #D9A78E, #C2866E);
+            border: none;
+            padding: 14px 38px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            box-shadow: 0 6px 14px rgba(162, 106, 106, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(162, 106, 106, 0.35);
+        }
+
+        /* Footer */
+        footer {
+            background: #F2E3DB;
+            color: #60473D;
+            padding: 3rem 6% 1.5rem;
+            border-top: 2px solid #FFF5EF;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            color: #8D6152;
+            font-weight: 500;
+        }
+
+        .footer-col a, .footer-col p {
+            color: #786155;
+            text-decoration: none;
+            line-height: 1.8;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: #C4836E;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            background: rgba(156, 108, 92, 0.12);
+            width: 36px;
+            height: 36px;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.25s;
+            color: #8D6152;
+        }
+
+        .social-links a:hover {
+            background: var(--golden-nectar);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #EED6CB;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .nav-links {
+                gap: 2rem;
+            }
+            .nav-actions {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.2rem;
+                background: rgba(255, 248, 244, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 1.8rem 1.5rem;
+                border-radius: 32px;
+                margin-top: 1rem;
+                border: 1px solid rgba(194, 134, 110, 0.2);
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .nav-links a {
+                font-size: 1.1rem;
+            }
+            .mobile-dock {
+                display: flex;
+            }
+            body {
+                padding-bottom: 70px;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .full-section {
+                padding: 3rem 5%;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .service-card {
+                padding: 1.8rem;
+            }
+            .nav-call {
+                padding: 6px 14px;
+                font-size: 0.8rem;
+            }
+            .nav-gift {
+                padding: 5px 12px;
+                font-size: 0.8rem;
+            }
+            .logo-text h1 {
+                font-size: 1.2rem;
+            }
+            .logo-icon {
+                width: 46px;
+                height: 46px;
+            }
+            .cta-content h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 248, 244, 0.98);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+            padding: 0.9rem 6%;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<!-- STICKY HEADER - matching homepage design -->
+<nav class="navbar">
+    <a href="home.html" class="logo-area">
+        <div class="logo-icon"><i class="fas fa-feather-alt"></i></div>
+        <div class="logo-text">
+            <h1>Peaceful Palms</h1>
+            <p>MOBILE SPA ATELIER</p>
+        </div>
+    </a>
+    <button class="menu-toggle" aria-label="Menu">
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+    <div class="nav-links">
+        <a href="home.html">Sanctuary</a>
+        <a href="services.html" class="active">Rituals</a>
+        <a href="gift.html">Gift Essence</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Connect</a>
+    </div>
+    <div class="nav-actions">
+        <a href="tel:+27678708737" class="nav-call">Book Now</a>
+        <a href="gift.html" class="nav-gift">Gift</a>
+    </div>
+</nav>
+
+<!-- MOBILE DOCK -->
+<div class="mobile-dock">
+    <a href="home.html" class="dock-item"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="services.html" class="dock-item active"><i class="fas fa-spa"></i><span>Rituals</span></a>
+    <a href="gift.html" class="dock-item"><i class="fas fa-gift"></i><span>Gift</span></a>
+    <a href="pricing.html" class="dock-item"><i class="fas fa-tag"></i><span>Pricing</span></a>
+    <a href="contact.html" class="dock-item"><i class="fas fa-envelope"></i><span>Connect</span></a>
+</div>
+
+<main>
+    <!-- HERO SECTION -->
+    <section class="full-section hero-section">
+        <div class="hero-content">
+            <span class="hero-badge">✦ SIGNATURE RITUALS ✦</span>
+            <h1>Our Sacred Treatments</h1>
+            <p>All rituals include travel setup, soothing music, premium organic oils, and a fully equipped massage table. We bring the spa sanctuary directly to your doorstep.</p>
+        </div>
+    </section>
+
+    <!-- SERVICES GRID SECTION -->
+    <section class="full-section services-section">
+        <div style="width: 100%;">
+            <h2 class="section-title">Mobile Spa Rituals</h2>
+            <p class="section-subtitle">Luxury wellness, tailored to your rhythm — wherever you are</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Deep Tissue Alchemy</h3>
+                    <p class="service-desc">Targeted pressure to release chronic tension and knots. Ideal for athletes or desk workers seeking deep renewal.</p>
+                    <p class="service-duration">60 min | 90 min</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-feather-alt"></i>
+                    <h3>Lavender Swedish</h3>
+                    <p class="service-desc">Gentle, flowing strokes with calming lavender essential oils to melt away stress and restore harmony.</p>
+                    <p class="service-duration">60 min | 90 min</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-gem"></i>
+                    <h3>Warm Stone Ceremony</h3>
+                    <p class="service-desc">Warm basalt stones placed along key energy points for deep, grounding relaxation.</p>
+                    <p class="service-duration">75 min</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-smile-beam"></i>
+                    <h3>Dewy Facial Radiance</h3>
+                    <p class="service-desc">Deep cleanse, gentle exfoliation, botanical mask, and gua sha pressure point massage for glowing skin.</p>
+                    <p class="service-duration">30 min | 45 min</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-praying-hands"></i>
+                    <h3>Couples Harmony</h3>
+                    <p class="service-desc">Two therapists, side-by-side treatments in the comfort of your home. Perfect for anniversaries or shared self-care.</p>
+                    <p class="service-duration">60/90 min per person</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Mother's Nurture</h3>
+                    <p class="service-desc">Safe, nurturing care for expecting mothers. Side-lying positioning and gentle, supportive techniques.</p>
+                    <p class="service-duration">45 min | 60 min</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-hand-sparkles"></i>
+                    <h3>Coconut Scrub & Wrap</h3>
+                    <p class="service-desc">Exfoliating coconut sugar scrub followed by a hydrating botanical wrap for silky, renewed skin.</p>
+                    <p class="service-duration">75 min</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-moon"></i>
+                    <h3>Twilight Aromatherapy</h3>
+                    <p class="service-desc">Blend of lavender, chamomile, and vetiver for deep sleep support and nervous system restoration.</p>
+                    <p class="service-duration">60 min</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="full-section cta-section">
+        <div class="cta-content">
+            <h2>Create Your Bespoke Spa Day</h2>
+            <p>All services can be tailored to your preferences. Layer treatments, add extended time, or design a special occasion package — we're here to bring your vision to life.</p>
+            <a href="contact.html" class="btn-primary">Begin Your Journey →</a>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Peaceful Palms</h4>
+            <p>Mobile spa blending elegance, organic botanics & the art of slow living — delivered to your door with love.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Moments</h4>
+            <a href="home.html">Sanctuary</a>
+            <a href="services.html">All Rituals</a>
+            <a href="gift.html">Gift Vouchers</a>
+            <a href="pricing.html">Investment</a>
+            <a href="contact.html">Begin Journey</a>
+        </div>
+        <div class="footer-col">
+            <h4>Whisper to Us</h4>
+            <p><i class="fas fa-phone-alt"></i> 067 870 8737</p>
+            <p><i class="fab fa-whatsapp"></i> 067 870 8737 (WhatsApp)</p>
+            <p><i class="fas fa-envelope"></i> hello@peacefulpalms.co.za</p>
+            <p><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
+        </div>
+        <div class="footer-col">
+            <h4>Blooming Hours</h4>
+            <p>Monday – Sunday: 8am – 9pm</p>
+            <p>Moonlight bookings on request</p>
+            <p>Last-minute? Just call us 🌙</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Peaceful Palms — feminine mobile spa atelier. Crafted with <i class="fas fa-heart" style="color: #C28471;"></i> & moonlight.</p>
+        <p style="margin-top: 6px;">Wherever you are, serenity arrives.</p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle with animation
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('show');
+                const spans = document.querySelectorAll('.hamburger span');
+                if (navLinks.classList.contains('show')) {
+                    spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Active link highlighting
+        const currentPage = window.location.pathname.split('/').pop() || 'services.html';
+        document.querySelectorAll('.nav-links a, .dock-item').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPage || (currentPage === 'services.html' && href === 'services.html')) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>

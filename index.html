@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peaceful Palms | Luxury Mobile Spa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Colors extracted from your image */
+            --forest-green: #1E4E3A;
+            --soft-gold: #DCC178;
+            --warm-beige: #F5E6D3;
+            --dusty-rose: #D4A3A3;
+            --glass: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow: hidden;
+            background-color: #1a1a1a;
+        }
+
+        /* Hero Background */
+        .hero-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
+                        url('./images/landing\ page.png'); /* Using your uploaded filename */
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            transform: scale(1.05);
+            animation: subtleZoom 20s infinite alternate;
+        }
+
+        @keyframes subtleZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        /* Content Overlay */
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .glass-card {
+            background: rgba(30, 78, 58, 0.2); /* Tinted forest green glass */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 3rem 2rem;
+            border-radius: 30px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--soft-gold);
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 10px rgba(220, 193, 120, 0.3));
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        .tagline {
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 0.75rem;
+            color: var(--soft-gold);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+        }
+
+        /* Primary Button */
+        .btn-enter {
+            background: var(--soft-gold);
+            color: var(--forest-green);
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-enter:hover {
+            transform: translateY(-5px);
+            background: #fff;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Loading Screen (Hidden by default) */
+        #loadingOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--forest-green);
+            z-index: 1000;
+            display: none; /* Triggered via JS */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--soft-gold);
+        }
+
+        .loader-ring {
+            width: 80px;
+            height: 80px;
+            border: 2px solid rgba(220, 193, 120, 0.1);
+            border-top: 2px solid var(--soft-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 2rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2rem; }
+            .glass-card { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-bg"></div>
+
+    <div class="content-wrapper">
+        <div class="glass-card">
+            <div class="logo-icon">
+                <i class="fas fa-spa"></i>
+            </div>
+            <div class="tagline">Mobile Spa Experience</div>
+            <h1>Peaceful Palms</h1>
+            <p>Escape the ordinary. Professional luxury wellness delivered to your private sanctuary.</p>
+            
+            <button id="entryTrigger" class="btn-enter">
+                Begin Journey <i class="fas fa-chevron-right" style="margin-left: 10px; font-size: 0.8rem;"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="loadingOverlay">
+        <div class="loader-ring"></div>
+        <div class="loading-text">Preparing your serenity...</div>
+    </div>
+
+    <script>
+        const entryTrigger = document.getElementById('entryTrigger');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+
+        entryTrigger.addEventListener('click', function() {
+            // 1. Show the loading screen
+            loadingOverlay.style.display = 'flex';
+            
+            // 2. Add a slight fade in effect for the loading screen
+            loadingOverlay.style.opacity = '0';
+            setTimeout(() => {
+                loadingOverlay.style.transition = 'opacity 0.5s ease';
+                loadingOverlay.style.opacity = '1';
+            }, 10);
+
+            // 3. Delay for 2.5 seconds, then redirect
+            setTimeout(() => {
+                window.location.href = 'home.html';
+            }, 2500);
+        });
+    </script>
+</body>
+</html>

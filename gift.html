@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Peaceful Palms | Gift Voucher – Give the Gift of Serenity</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #FFF8F5;
+            color: #5E4B3C;
+            overflow-x: hidden;
+        }
+
+        /* Refined feminine palette */
+        :root {
+            --petal-white: #FFF9F7;
+            --rose-blush: #FCE4E0;
+            --dusted-rose: #EECDC9;
+            --cashmere-beige: #F4EAE3;
+            --mauve-sand: #E2D4CD;
+            --deep-rosewood: #A26A6A;
+            --soft-lavender: #D1C3D4;
+            --plum-brown: #704C4C;
+            --golden-nectar: #EFC8B3;
+            --warm-clay: #CBA48F;
+            --cream-latte: #FEF6F0;
+            --quiet-moss: #8A9A7B;
+            --shadow-rose: rgba(162, 106, 106, 0.08);
+        }
+
+        /* ========= STICKY HEADER - matching homepage ========= */
+        .navbar {
+            background: rgba(255, 248, 244, 0.96);
+            backdrop-filter: blur(20px);
+            padding: 1.2rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(194, 134, 110, 0.12);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .logo-area:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #F9E0D2, #F2CFBF);
+            border-radius: 32% 68% 70% 30% / 44% 40% 60% 56%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 22px rgba(162, 106, 106, 0.12);
+        }
+
+        .logo-icon i {
+            font-size: 1.8rem;
+            color: #C2866E;
+        }
+
+        .logo-text h1 {
+            font-size: 1.65rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            background: linear-gradient(135deg, #9E6D5E, #7A4C44);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            font-size: 0.68rem;
+            letter-spacing: 3px;
+            color: #C2866E;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #8B6B60;
+            transition: all 0.25s ease;
+            position: relative;
+            padding: 8px 0;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background: linear-gradient(90deg, #D9A78E, #C2866E);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #C67A62;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-call {
+            background: linear-gradient(105deg, #D9A78E, #C2866E);
+            padding: 10px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            box-shadow: 0 6px 16px rgba(194, 134, 110, 0.25);
+            white-space: nowrap;
+        }
+
+        .nav-call:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(194, 134, 110, 0.35);
+        }
+
+        .nav-gift {
+            background: transparent;
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #C2866E;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 1.5px solid rgba(194, 134, 110, 0.4);
+            white-space: nowrap;
+        }
+
+        .nav-gift:hover {
+            background: #C2866E;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger {
+            width: 28px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 2px;
+            background: #C2866E;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        /* ========= MOBILE DOCK ========= */
+        .mobile-dock {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(249, 239, 233, 0.96);
+            backdrop-filter: blur(22px);
+            padding: 0.7rem 1rem;
+            justify-content: space-around;
+            z-index: 1000;
+            border-top: 1px solid rgba(206, 154, 141, 0.4);
+            border-radius: 28px 28px 0 0;
+        }
+
+        .dock-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #B18B7E;
+            font-size: 0.65rem;
+            gap: 4px;
+            padding: 6px 14px;
+            border-radius: 60px;
+            transition: all 0.2s;
+        }
+
+        .dock-item i {
+            font-size: 1.25rem;
+        }
+
+        .dock-item.active, .dock-item:hover {
+            color: #BA7A6A;
+            background: rgba(239, 200, 179, 0.35);
+        }
+
+        /* ========= FULL SECTIONS ========= */
+        .full-section {
+            width: 100%;
+            padding: 5rem 6%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(125deg, #FDF3EF 0%, #FCEAE4 100%);
+            position: relative;
+            min-height: 50vh;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: "✧ ˚₊‧⁺˖";
+            font-size: 22rem;
+            position: absolute;
+            bottom: -15%;
+            right: -10%;
+            font-family: monospace;
+            opacity: 0.08;
+            color: #B07C6C;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(239, 200, 179, 0.25);
+            backdrop-filter: blur(8px);
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: #B57A64;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(194, 134, 110, 0.3);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            color: #754E42;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: #836B62;
+            line-height: 1.7;
+        }
+
+        /* Gift Form Section */
+        .form-section {
+            background: var(--cream-latte);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            color: #674E42;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .section-title:after {
+            content: '🌸';
+            display: block;
+            font-size: 1.8rem;
+            letter-spacing: 6px;
+            background: none;
+            margin: 0.6rem auto 0;
+        }
+
+        .sub-headline {
+            text-align: center;
+            color: #9B7A6E;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+        }
+
+        /* Gift Card Form */
+        .gift-card-form {
+            background: white;
+            border-radius: 48px;
+            padding: 2.8rem;
+            box-shadow: 0 25px 45px -12px rgba(100, 70, 60, 0.15);
+            border: 1px solid #F5E0D7;
+            margin-bottom: 2rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .toggle-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .toggle-btn {
+            padding: 12px 32px;
+            border-radius: 60px;
+            border: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            background: #F4EAE3;
+            color: #7A5A4E;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .toggle-btn.active {
+            background: linear-gradient(105deg, #D9A78E, #C2866E);
+            color: white;
+            box-shadow: 0 4px 12px rgba(194, 134, 110, 0.3);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            color: #8D6152;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 60px;
+            border: 1.5px solid #F0DFD6;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            background: #FFFDFB;
+            transition: all 0.2s;
+            outline: none;
+        }
+
+        textarea {
+            border-radius: 28px;
+            resize: vertical;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #D9A78E;
+            box-shadow: 0 0 0 3px rgba(217, 167, 142, 0.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(105deg, #D9A78E, #C2866E);
+            padding: 14px 28px;
+            border-radius: 60px;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(194, 134, 110, 0.35);
+        }
+
+        .custom-date-wrapper {
+            margin-top: 12px;
+            display: none;
+        }
+
+        .info-note {
+            font-size: 0.7rem;
+            color: #A98D80;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* Voucher Preview - Unique Feature: Secret Message Reveal */
+        .voucher-preview {
+            background: linear-gradient(135deg, #FFFDF9, #FFF8F2);
+            border-radius: 48px;
+            padding: 0;
+            margin-top: 2rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid #F0DFD6;
+        }
+
+        .secret-message-area {
+            background: #F9EDE6;
+            padding: 1.2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-top: 1px solid #EAD5CB;
+        }
+
+        .secret-message-area:hover {
+            background: #F5E4DB;
+        }
+
+        .secret-label {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: #B28674;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .secret-label i {
+            font-size: 0.9rem;
+        }
+
+        .secret-message-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+            background: #FFF5EF;
+            border-radius: 28px;
+            margin-top: 0;
+        }
+
+        .secret-message-content.show {
+            max-height: 200px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .secret-message-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #9B6B5A;
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(110deg, #F7E7DF, #FEE9E1);
+            min-height: 35vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: "✦ ˚ ༘ ೀ⋆｡˚";
+            font-size: 10rem;
+            bottom: -5%;
+            right: -3%;
+            position: absolute;
+            opacity: 0.1;
+        }
+
+        .cta-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            color: #6B463B;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #F2E3DB;
+            color: #60473D;
+            padding: 3rem 6% 1.5rem;
+            border-top: 2px solid #FFF5EF;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            color: #8D6152;
+            font-weight: 500;
+        }
+
+        .footer-col a, .footer-col p {
+            color: #786155;
+            text-decoration: none;
+            line-height: 1.8;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: #C4836E;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            background: rgba(156, 108, 92, 0.12);
+            width: 36px;
+            height: 36px;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.25s;
+            color: #8D6152;
+        }
+
+        .social-links a:hover {
+            background: #EFC8B3;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #EED6CB;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.2rem;
+                background: rgba(255, 248, 244, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 1.8rem;
+                border-radius: 32px;
+                margin-top: 1rem;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .mobile-dock {
+                display: flex;
+            }
+            body {
+                padding-bottom: 70px;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .gift-card-form {
+                padding: 1.8rem;
+            }
+            .full-section {
+                padding: 3rem 5%;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .toggle-btn {
+                padding: 8px 20px;
+                font-size: 0.8rem;
+            }
+            .nav-call {
+                padding: 6px 14px;
+                font-size: 0.75rem;
+            }
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 248, 244, 0.98);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+            padding: 0.9rem 6%;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<!-- STICKY HEADER -->
+<nav class="navbar">
+    <a href="home.html" class="logo-area">
+        <div class="logo-icon"><i class="fas fa-feather-alt"></i></div>
+        <div class="logo-text">
+            <h1>Peaceful Palms</h1>
+            <p>MOBILE SPA ATELIER</p>
+        </div>
+    </a>
+    <button class="menu-toggle" aria-label="Menu">
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+    <div class="nav-links">
+        <a href="home.html">Sanctuary</a>
+        <a href="services.html">Rituals</a>
+        <a href="gift.html" class="active">Gift Essence</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Connect</a>
+    </div>
+    <div class="nav-actions">
+        <a href="tel:+27678708737" class="nav-call">Book Now</a>
+        <a href="gift.html" class="nav-gift">Gift</a>
+    </div>
+</nav>
+
+<!-- MOBILE DOCK -->
+<div class="mobile-dock">
+    <a href="home.html" class="dock-item"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="services.html" class="dock-item"><i class="fas fa-spa"></i><span>Rituals</span></a>
+    <a href="gift.html" class="dock-item active"><i class="fas fa-gift"></i><span>Gift</span></a>
+    <a href="pricing.html" class="dock-item"><i class="fas fa-tag"></i><span>Pricing</span></a>
+    <a href="contact.html" class="dock-item"><i class="fas fa-envelope"></i><span>Connect</span></a>
+</div>
+
+<main>
+    <!-- HERO SECTION -->
+    <section class="full-section hero-section">
+        <div class="hero-content">
+            <span class="hero-badge">✦ GIFT OF SERENITY ✦</span>
+            <h1>Spa Gift Voucher</h1>
+            <p>Give the gift of relaxation, luxury, and self-care — delivered to their door. Perfect for birthdays, anniversaries, or just because.</p>
+        </div>
+    </section>
+
+    <!-- GIFT CARD FORM SECTION -->
+    <section class="full-section form-section">
+        <div style="width: 100%;">
+            <h2 class="section-title">Create Your Personalised Voucher</h2>
+            <p class="sub-headline">Fill in the details to generate a beautiful, shareable gift card</p>
+
+            <div class="gift-card-form">
+                <div class="toggle-group">
+                    <button id="selfToggle" class="toggle-btn active">🌸 For myself / owner</button>
+                    <button id="otherToggle" class="toggle-btn">🎁 For someone special</button>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="far fa-user"></i> TO</label>
+                        <input type="text" id="giftTo" placeholder="Recipient's name" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-heart"></i> FROM</label>
+                        <input type="text" id="giftFrom" placeholder="Your name" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-tag"></i> VALUE (ZAR)</label>
+                        <input type="text" id="giftValue" placeholder="e.g., 650, 1200, 2500" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-spa"></i> SERVICE NAME</label>
+                        <input type="text" id="giftService" placeholder="e.g., Hot Stone Massage, Couples Retreat" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="far fa-calendar-alt"></i> VALID UNTIL</label>
+                        <select id="validitySelect">
+                            <option value="1m">1 month from today</option>
+                            <option value="3m" selected>3 months from today</option>
+                            <option value="6m">6 months from today</option>
+                            <option value="custom">Custom date (within 6 months)</option>
+                        </select>
+                        <div id="customDateWrapper" class="custom-date-wrapper">
+                            <input type="date" id="customExpiryDate">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNIQUE FEATURE: Secret Message Reveal -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope-open-text"></i> SECRET MESSAGE (tap to reveal)</label>
+                        <textarea id="secretMessage" rows="2" placeholder="Write a heartfelt note that will appear when the recipient clicks 'Reveal Secret Message' on the voucher..."></textarea>
+                    </div>
+                </div>
+
+                <button id="generateVoucherBtn" class="btn-primary">
+                    <i class="fas fa-gift"></i> Generate Spa Voucher
+                </button>
+
+                <div class="info-note">
+                    <i class="fas fa-mobile-alt"></i> After generating, you can screenshot, print, or share the voucher. We come to your location!
+                </div>
+            </div>
+
+            <!-- VOUCHER PREVIEW SECTION with Secret Message Reveal Feature -->
+            <div id="voucherPreviewArea" class="voucher-preview">
+                <div style="text-align: center; color: #A98D80; padding: 3rem 2rem;">
+                    <i class="fas fa-palm-tree" style="font-size: 2.5rem; opacity: 0.4; margin-bottom: 1rem; display: block;"></i>
+                    <p>Fill in the details above and click "Generate Spa Voucher"<br>to see your beautiful personalised gift card.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="full-section cta-section">
+        <div class="cta-content">
+            <h2>Ready to Book Your Spa Day?</h2>
+            <p>Contact us to schedule your mobile spa experience. We come fully equipped to your home, hotel, or office.</p>
+            <a href="contact.html" class="btn-primary" style="background: linear-gradient(105deg, #D9A78E, #C2866E); margin-top: 1rem; display: inline-block; width: auto; padding: 12px 32px;">Book Now →</a>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Peaceful Palms</h4>
+            <p>Mobile spa blending elegance, organic botanics & the art of slow living — delivered to your door with love.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Moments</h4>
+            <a href="home.html">Sanctuary</a>
+            <a href="services.html">All Rituals</a>
+            <a href="gift.html">Gift Vouchers</a>
+            <a href="pricing.html">Investment</a>
+            <a href="contact.html">Begin Journey</a>
+        </div>
+        <div class="footer-col">
+            <h4>Whisper to Us</h4>
+            <p><i class="fas fa-phone-alt"></i> 067 870 8737</p>
+            <p><i class="fab fa-whatsapp"></i> 067 870 8737 (WhatsApp)</p>
+            <p><i class="fas fa-envelope"></i> hello@peacefulpalms.co.za</p>
+            <p><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
+        </div>
+        <div class="footer-col">
+            <h4>Blooming Hours</h4>
+            <p>Monday – Sunday: 8am – 9pm</p>
+            <p>Moonlight bookings on request</p>
+            <p>Last-minute? Just call us 🌙</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Peaceful Palms — feminine mobile spa atelier. Crafted with <i class="fas fa-heart" style="color: #C28471;"></i> & moonlight.</p>
+        <p style="margin-top: 6px;">Wherever you are, serenity arrives.</p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('show');
+                const spans = document.querySelectorAll('.hamburger span');
+                if (navLinks.classList.contains('show')) {
+                    spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+        }
+
+        // Scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Gift card logic
+        const selfToggle = document.getElementById('selfToggle');
+        const otherToggle = document.getElementById('otherToggle');
+        const toInput = document.getElementById('giftTo');
+        const fromInput = document.getElementById('giftFrom');
+        const valueInput = document.getElementById('giftValue');
+        const serviceInput = document.getElementById('giftService');
+        const secretMessageInput = document.getElementById('secretMessage');
+        const validitySelect = document.getElementById('validitySelect');
+        const customDateWrapper = document.getElementById('customDateWrapper');
+        const customDateInput = document.getElementById('customExpiryDate');
+        const generateBtn = document.getElementById('generateVoucherBtn');
+        const previewArea = document.getElementById('voucherPreviewArea');
+
+        function getMaxDate() {
+            const today = new Date();
+            const maxDate = new Date();
+            maxDate.setMonth(today.getMonth() + 6);
+            return maxDate;
+        }
+
+        function setCustomDateLimits() {
+            const today = new Date();
+            const maxDate = getMaxDate();
+            const minStr = today.toISOString().split('T')[0];
+            const maxStr = maxDate.toISOString().split('T')[0];
+            customDateInput.min = minStr;
+            customDateInput.max = maxStr;
+            if (!customDateInput.value) {
+                const defaultCustom = new Date();
+                defaultCustom.setMonth(defaultCustom.getMonth() + 3);
+                customDateInput.value = defaultCustom.toISOString().split('T')[0];
+            }
+        }
+
+        function updateCustomDateVisibility() {
+            customDateWrapper.style.display = validitySelect.value === 'custom' ? 'block' : 'none';
+        }
+
+        function getExpiryDateString() {
+            const today = new Date();
+            let expiryDate = new Date();
+            const selected = validitySelect.value;
+            if (selected === '1m') expiryDate.setMonth(today.getMonth() + 1);
+            else if (selected === '3m') expiryDate.setMonth(today.getMonth() + 3);
+            else if (selected === '6m') expiryDate.setMonth(today.getMonth() + 6);
+            else if (selected === 'custom' && customDateInput.value) {
+                expiryDate = new Date(customDateInput.value);
+                const maxAllowed = getMaxDate();
+                if (expiryDate > maxAllowed) expiryDate = maxAllowed;
+                if (expiryDate < today) expiryDate = today;
+            }
+            return expiryDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
+        }
+
+        function setMode(mode) {
+            if (mode === 'self') {
+                toInput.placeholder = "Your full name";
+                fromInput.placeholder = "Your name / 'Myself'";
+                selfToggle.classList.add('active');
+                otherToggle.classList.remove('active');
+            } else {
+                toInput.placeholder = "Recipient's name (lucky person)";
+                fromInput.placeholder = "Your name (gift giver)";
+                otherToggle.classList.add('active');
+                selfToggle.classList.remove('active');
+            }
+        }
+
+        selfToggle.addEventListener('click', () => setMode('self'));
+        otherToggle.addEventListener('click', () => setMode('other'));
+        setMode('self');
+
+        validitySelect.addEventListener('change', () => {
+            updateCustomDateVisibility();
+            if (validitySelect.value === 'custom') setCustomDateLimits();
+        });
+
+        function generateGiftCard() {
+            let toVal = toInput.value.trim() || "Beloved Soul";
+            let fromVal = fromInput.value.trim() || "Peaceful Palms";
+            let rawValue = valueInput.value.trim();
+            let serviceVal = serviceInput.value.trim();
+            let secretMsg = secretMessageInput.value.trim();
+            
+            let valueDisplay = rawValue === "" ? "A Special Treat" : `R ${rawValue}`;
+            let serviceDisplay = serviceVal === "" ? "Spa Ritual of Your Choice" : serviceVal;
+            const expiryFinal = getExpiryDateString();
+            
+            const cardHTML = `
+                <div style="background: linear-gradient(135deg, #FFFFFF 0%, #FFFBF5 100%); overflow: hidden;">
+                    <div style="background: linear-gradient(105deg, #D9A78E, #C2866E); padding: 1.5rem; text-align: center;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            <i class="fas fa-feather-alt" style="color: #FCE4E0; font-size: 1.8rem;"></i>
+                            <span style="font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 600; color: white;">PEACEFUL PALMS</span>
+                        </div>
+                        <p style="color: #FCE4E0; font-size: 0.7rem; letter-spacing: 3px; margin-top: 6px;">MOBILE SPA ATELIER</p>
+                    </div>
+                    <div style="padding: 2rem 2rem 1.5rem 2rem;">
+                        <div style="text-align: center; margin-bottom: 1.5rem;">
+                            <span style="background: #F4EAE3; padding: 6px 24px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; color: #8D6152;">✦ GIFT OF SERENITY ✦</span>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #F0DFD6; padding: 12px 0;">
+                                <span style="font-weight: 700; color: #754E42;">TO</span>
+                                <span style="color: #9B6B5A; font-weight: 500;">${escapeHtml(toVal)}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #F0DFD6; padding: 12px 0;">
+                                <span style="font-weight: 700; color: #754E42;">FROM</span>
+                                <span style="color: #9B6B5A; font-weight: 500;">${escapeHtml(fromVal)}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #F0DFD6; padding: 12px 0;">
+                                <span style="font-weight: 700; color: #754E42;">VALUE</span>
+                                <span style="color: #C2866E; font-weight: 700;">${escapeHtml(valueDisplay)}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #F0DFD6; padding: 12px 0;">
+                                <span style="font-weight: 700; color: #754E42;">SERVICE</span>
+                                <span style="color: #8D6F63;">${escapeHtml(serviceDisplay)}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 12px 0;">
+                                <span style="font-weight: 700; color: #754E42;">VALID UNTIL</span>
+                                <span style="color: #A98D80; font-weight: 600;">${escapeHtml(expiryFinal)}</span>
+                            </div>
+                        </div>
+                        <div style="background: #F9EDE6; border-radius: 28px; padding: 1rem; text-align: center; margin-bottom: 1rem;">
+                            <i class="fas fa-phone-alt"></i> <strong>067 870 8737</strong><br>
+                            <span style="font-size: 0.7rem;">WhatsApp & Calls — We come to you</span>
+                        </div>
+                        <p style="text-align: center; font-size: 0.7rem; color: #A98D80;">✨ This voucher is redeemable for a mobile spa experience. Contact to book your serene escape. ✨</p>
+                    </div>
+                    <div class="secret-message-area" id="secretRevealArea">
+                        <div class="secret-label">
+                            <i class="fas fa-envelope"></i>
+                            <span>💌 TAP TO REVEAL SECRET MESSAGE 💌</span>
+                            <i class="fas fa-chevron-down" id="secretIcon"></i>
+                        </div>
+                        <div class="secret-message-content" id="secretContent">
+                            <div class="secret-message-text">
+                                <i class="fas fa-quote-left" style="opacity: 0.5; margin-right: 5px;"></i>
+                                ${secretMsg ? escapeHtml(secretMsg) : "Wishing you peace, relaxation, and beautiful moments of self-care. Enjoy your spa journey."}
+                                <i class="fas fa-quote-right" style="opacity: 0.5; margin-left: 5px;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            previewArea.innerHTML = cardHTML;
+            
+            // Attach secret message reveal functionality
+            const secretArea = document.getElementById('secretRevealArea');
+            const secretContent = document.getElementById('secretContent');
+            const secretIcon = document.getElementById('secretIcon');
+            if (secretArea) {
+                secretArea.addEventListener('click', function() {
+                    secretContent.classList.toggle('show');
+                    if (secretIcon) {
+                        secretIcon.style.transform = secretContent.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
+                    }
+                });
+            }
+        }
+        
+        generateBtn.addEventListener('click', () => {
+            if (validitySelect.value === 'custom' && customDateInput.value) {
+                const selectedDate = new Date(customDateInput.value);
+                const today = new Date();
+                const maxAllowed = getMaxDate();
+                if (selectedDate > maxAllowed) {
+                    customDateInput.value = maxAllowed.toISOString().split('T')[0];
+                } else if (selectedDate < today) {
+                    customDateInput.value = today.toISOString().split('T')[0];
+                }
+            }
+            generateGiftCard();
+        });
+        
+        setCustomDateLimits();
+        updateCustomDateVisibility();
+        
+        // Auto-generate on page load with sample data
+        setTimeout(() => {
+            toInput.value = "Sarah";
+            fromInput.value = "Peaceful Palms";
+            valueInput.value = "1200";
+            serviceInput.value = "Signature Hot Stone Massage";
+            secretMessageInput.value = "You deserve this moment of peace. Let the world wait while you rest and restore. With love, The Peaceful Palms Team 🌸";
+            generateGiftCard();
+        }, 100);
+    });
+</script>
+</body>
+</html>

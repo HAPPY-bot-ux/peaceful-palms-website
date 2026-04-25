@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Peaceful Palms | Pricing & Packages – Mobile Luxury Spa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #F3EAE2;
+            color: #3F5A3F;
+            overflow-x: hidden;
+        }
+
+        /* Custom Color Palette */
+        :root {
+            --warm-beige: #F3EAE2;
+            --warm-beige-dark: #E8DCCF;
+            --soft-sand: #D9C2AE;
+            --muted-leaf: #5E7D5A;
+            --deep-leaf: #3F5A3F;
+            --blush-pink: #E8A6A6;
+            --blush-soft: #F2B6B6;
+            --golden-amber: #F4C27A;
+            --amber-deep: #E0A85A;
+            --light-wood: #BFA38A;
+            --stone-taupe: #A89F96;
+            --cream-white: #FFFDF9;
+        }
+
+        /* ========= STICKY HEADER (matching home page) ========= */
+        .navbar {
+            background: rgba(30, 40, 28, 0.92);
+            backdrop-filter: blur(16px);
+            padding: 0.8rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(232, 166, 166, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, var(--golden-amber), var(--amber-deep));
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--deep-leaf);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--golden-amber);
+            letter-spacing: -0.5px;
+            font-weight: 600;
+        }
+
+        .logo-text p {
+            font-size: 0.65rem;
+            letter-spacing: 2.5px;
+            color: var(--soft-sand);
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--warm-beige);
+            transition: 0.25s;
+            font-size: 0.95rem;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--blush-pink);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--blush-pink);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.6rem;
+            background: none;
+            border: none;
+            color: var(--golden-amber);
+            cursor: pointer;
+        }
+
+        /* ========= MOBILE DOCK ========= */
+        .mobile-dock {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(63, 90, 63, 0.97);
+            backdrop-filter: blur(12px);
+            padding: 0.7rem 1rem;
+            justify-content: space-around;
+            z-index: 1000;
+            border-top: 1px solid var(--golden-amber);
+        }
+
+        .dock-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--soft-sand);
+            font-size: 0.7rem;
+            gap: 4px;
+            padding: 6px 12px;
+            border-radius: 40px;
+            transition: all 0.2s;
+        }
+
+        .dock-item i {
+            font-size: 1.3rem;
+        }
+
+        .dock-item.active, .dock-item:hover {
+            color: var(--golden-amber);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* ========= FULL SCREEN SECTIONS ========= */
+        .full-section {
+            width: 100%;
+            padding: 5rem 8%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section with Background Image */
+        .hero-section {
+            position: relative;
+            background: linear-gradient(135deg, var(--warm-beige) 0%, var(--warm-beige-dark) 100%);
+            min-height: 55vh;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=2070&auto=format');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.12;
+            z-index: 0;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(243, 234, 226, 0.8) 0%, rgba(232, 220, 207, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--deep-leaf);
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--stone-taupe);
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background: var(--cream-white);
+            min-height: auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            color: var(--deep-leaf);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 3px;
+            background: var(--blush-pink);
+            margin: 1rem auto 0;
+            border-radius: 3px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--stone-taupe);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: var(--warm-beige);
+            border-radius: 2rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--soft-sand);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--blush-pink);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-card.featured {
+            border: 2px solid var(--golden-amber);
+            background: linear-gradient(135deg, var(--warm-beige) 0%, #fff8f0 100%);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--golden-amber);
+            color: var(--deep-leaf);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 5px 15px;
+            border-radius: 0 2rem 0 2rem;
+            text-transform: uppercase;
+        }
+
+        .price-card h3 {
+            font-size: 1.6rem;
+            color: var(--deep-leaf);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--amber-deep);
+            margin: 1rem 0;
+        }
+
+        .price-desc {
+            color: var(--stone-taupe);
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .badge {
+            background: var(--soft-sand);
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            color: var(--deep-leaf);
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: var(--warm-beige);
+            border-radius: 2rem;
+            padding: 1.8rem;
+            margin-top: 2rem;
+            text-align: center;
+            border: 1px solid var(--soft-sand);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-box.special {
+            background: linear-gradient(135deg, var(--golden-amber) 0%, var(--amber-deep) 100%);
+            border: none;
+        }
+
+        .info-box.special i, .info-box.special strong {
+            color: var(--deep-leaf);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--muted-leaf) 0%, var(--deep-leaf) 100%);
+            min-height: 35vh;
+        }
+
+        .cta-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.2rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--golden-amber);
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            color: var(--warm-beige);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            background: var(--golden-amber);
+            border: none;
+            padding: 14px 36px;
+            border-radius: 50px;
+            color: var(--deep-leaf);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            background: var(--amber-deep);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--deep-leaf);
+            color: var(--warm-beige);
+            padding: 3rem 8% 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            color: var(--golden-amber);
+        }
+
+        .footer-col a, .footer-col p {
+            color: var(--warm-beige);
+            text-decoration: none;
+            line-height: 1.8;
+            font-size: 0.85rem;
+            display: block;
+        }
+
+        .footer-col a:hover {
+            color: var(--blush-pink);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            background: rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--blush-pink);
+            color: var(--deep-leaf);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(220, 193, 120, 0.2);
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .full-section {
+                padding: 3rem 6%;
+                min-height: auto;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                background: rgba(30, 40, 28, 0.95);
+                backdrop-filter: blur(12px);
+                padding: 1.5rem;
+                border-radius: 1.5rem;
+                margin-top: 0.5rem;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .mobile-dock {
+                display: flex;
+            }
+            body {
+                padding-bottom: 70px;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .price-amount {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .price-card h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+            }
+            const currentPage = window.location.pathname.split('/').pop() || 'pricing.html';
+            document.querySelectorAll('.nav-links a, .dock-item').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPage || (currentPage === 'pricing.html' && href === 'pricing.html')) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+<!-- STICKY HEADER -->
+<nav class="navbar">
+    <a href="home.html" class="logo-area">
+        <div class="logo-icon"><i class="fas fa-palm-tree"></i></div>
+        <div class="logo-text">
+            <h1>PEACEFUL PALMS</h1>
+            <p>MOBILE SPA ✦ WE COME TO YOU</p>
+        </div>
+    </a>
+    <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="gift.html">Gift Voucher</a>
+        <a href="pricing.html" class="active">Pricing</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<!-- MOBILE DOCK -->
+<div class="mobile-dock">
+    <a href="home.html" class="dock-item"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="services.html" class="dock-item"><i class="fas fa-spa"></i><span>Services</span></a>
+    <a href="gift.html" class="dock-item"><i class="fas fa-gift"></i><span>Gift</span></a>
+    <a href="pricing.html" class="dock-item active"><i class="fas fa-tag"></i><span>Pricing</span></a>
+    <a href="contact.html" class="dock-item"><i class="fas fa-envelope"></i><span>Contact</span></a>
+</div>
+
+<main>
+    <!-- ========= HERO SECTION with Background Image ========= -->
+    <section class="full-section hero-section">
+        <div class="hero-content">
+            <h1>Mindful Pricing<br>Mobile Luxury</h1>
+            <p>Transparent, fair prices for premium spa experiences delivered to your doorstep. No hidden fees, just pure relaxation.</p>
+        </div>
+    </section>
+
+    <!-- ========= PRICING GRID SECTION ========= -->
+    <section class="full-section pricing-section">
+        <div style="width: 100%;">
+            <h2 class="section-title">Our Treatment Packages</h2>
+            <p class="section-subtitle">Choose the perfect spa experience for your needs</p>
+            
+            <div class="pricing-grid">
+                <div class="price-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <h3>Signature Massage</h3>
+                    <div class="price-amount">R650</div>
+                    <p class="price-desc">Swedish or Deep Tissue<br>60 minutes of pure bliss</p>
+                    <div class="badge">Best value</div>
+                </div>
+                
+                <div class="price-card">
+                    <h3>Hot Stone Therapy</h3>
+                    <div class="price-amount">R850</div>
+                    <p class="price-desc">75 min with lava stones + aromatherapy</p>
+                    <div class="badge">Deep relaxation</div>
+                </div>
+                
+                <div class="price-card">
+                    <h3>Express Facial</h3>
+                    <div class="price-amount">R490</div>
+                    <p class="price-desc">30 min radiance boost + scalp massage</p>
+                    <div class="badge">Quick glow</div>
+                </div>
+                
+                <div class="price-card">
+                    <h3>Couples Experience</h3>
+                    <div class="price-amount">R1600</div>
+                    <p class="price-desc">90 min each, two therapists, side-by-side</p>
+                    <div class="badge">Romantic getaway</div>
+                </div>
+                
+                <div class="price-card">
+                    <h3>Full Day Pamper</h3>
+                    <div class="price-amount">R2200</div>
+                    <p class="price-desc">Massage + body scrub + facial (2.5 hrs)</p>
+                    <div class="badge">Ultimate luxury</div>
+                </div>
+                
+                <div class="price-card">
+                    <h3>Mobile Event Spa</h3>
+                    <div class="price-amount">Quote</div>
+                    <p class="price-desc">Hen dos, bridal parties, corporate wellness</p>
+                    <div class="badge">Custom packages</div>
+                </div>
+            </div>
+
+            <!-- Travel Fee Info -->
+            <div class="info-box">
+                <i class="fas fa-truck" style="font-size: 1.5rem; color: var(--muted-leaf); margin-bottom: 0.5rem; display: inline-block;"></i>
+                <p><strong>Travel fee:</strong> FREE within 20km of Cape Town CBD. Additional distance: R150 flat fee.</p>
+                <p style="margin-top: 0.5rem;"><i class="fas fa-credit-card"></i> Gift vouchers available for any amount or specific service. Contact us for corporate packages.</p>
+            </div>
+
+            <!-- Special Offer -->
+            <div class="info-box special">
+                <i class="fas fa-gift" style="font-size: 1.8rem; color: var(--deep-leaf); margin-bottom: 0.5rem; display: inline-block;"></i>
+                <p><strong>🎁 Special Offer:</strong> Buy 3 massages and get 1 free! Valid for 6 months. Perfect for sharing or treating yourself.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========= CTA SECTION ========= -->
+    <section class="full-section cta-section">
+        <div class="cta-content">
+            <h2>Ready to Book Your Spa Experience?</h2>
+            <p>Contact us to schedule your mobile spa session. We'll help you choose the perfect treatment for your needs.</p>
+            <a href="contact.html" class="btn-primary">Book Now →</a>
+        </div>
+    </section>
+</main>
+
+<!-- FULL PROFESSIONAL FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Peaceful Palms</h4>
+            <p>Luxury mobile spa services delivered to your doorstep. Relax, restore, and rejuvenate wherever you are.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="home.html">Home</a>
+            <a href="services.html">All Services</a>
+            <a href="gift.html">Gift Vouchers</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Contact Info</h4>
+            <p><i class="fas fa-phone-alt"></i> 067 870 8737</p>
+            <p><i class="fab fa-whatsapp"></i> 067 870 8737 (WhatsApp)</p>
+            <p><i class="fas fa-envelope"></i> hello@peacefulpalms.co.za</p>
+            <p><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
+        </div>
+        <div class="footer-col">
+            <h4>Opening Hours</h4>
+            <p>Monday – Sunday: 8:00 – 21:00</p>
+            <p>Late bookings on request</p>
+            <p>Emergency/Last-minute: call us</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Peaceful Palms Mobile Spa — All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--blush-pink);"></i> for serenity</p>
+        <p style="margin-top: 8px;">We come to you — Mobile spa experience, professional therapists, organic products.</p>
+    </div>
+</footer>
+</body>
+</html>
