@@ -2,160 +2,370 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peaceful Palms | Luxury Mobile Spa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Peaceful Palms | Luxury Mobile Spa — Welcome to Serenity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-        :root {
-            /* Colors extracted from your image */
-            --forest-green: #1E4E3A;
-            --soft-gold: #DCC178;
-            --warm-beige: #F5E6D3;
-            --dusty-rose: #D4A3A3;
-            --glass: rgba(255, 255, 255, 0.15);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body, html {
-            height: 100%;
+        body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow: hidden;
-            background-color: #1a1a1a;
+            overflow-x: hidden;
         }
 
-        /* Hero Background */
+        /* Refined feminine color palette */
+        :root {
+            --deep-forest: #2D4A3E;
+            --soft-rose: #D4A3A3;
+            --dusted-rose: #E8C4C4;
+            --golden-honey: #E8C48A;
+            --warm-amber: #D4A854;
+            --cream-beige: #F9F2EA;
+            --milk-white: #FFFDF9;
+            --glass-white: rgba(255, 255, 255, 0.12);
+            --glass-dark: rgba(45, 74, 62, 0.25);
+        }
+
+        /* Hero Background with subtle animation */
         .hero-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
-                        url('./images/landing\ page.png'); /* Using your uploaded filename */
+            background: linear-gradient(135deg, 
+                rgba(45, 74, 62, 0.4) 0%, 
+                rgba(80, 60, 55, 0.45) 100%),
+                url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDQwIDQwIj48cGF0aCBmaWxsPSIjZThjNDhhIiBmaWxsLW9wYWNpdHk9IjAuMDMiIGQ9Ik0yMCAzLjVjOS4xIDAgMTYuNSA3LjQgMTYuNSAxNi41UzI5LjEgMzYuNSAyMCAzNi41IDMuNSAyOS4xIDMuNSAyMCAxMC45IDMuNSAyMCAzLjV6Ii8+PC9zdmc+');
             background-size: cover;
             background-position: center;
             z-index: 1;
-            transform: scale(1.05);
-            animation: subtleZoom 20s infinite alternate;
+            animation: slowZoom 25s infinite alternate ease-in-out;
         }
 
-        @keyframes subtleZoom {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
         }
 
-        /* Content Overlay */
-        .content-wrapper {
-            position: relative;
-            z-index: 2;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            color: white;
-        }
-
-        .glass-card {
-            background: rgba(30, 78, 58, 0.2); /* Tinted forest green glass */
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 3rem 2rem;
-            border-radius: 30px;
-            max-width: 500px;
+        /* Overlay gradient for depth */
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            height: 100%;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,240,0.08) 0%, rgba(0,0,0,0.25) 100%);
+            pointer-events: none;
         }
 
-        .logo-icon {
-            font-size: 2.5rem;
-            color: var(--soft-gold);
-            margin-bottom: 1rem;
-            filter: drop-shadow(0 0 10px rgba(220, 193, 120, 0.3));
-        }
-
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: 2px;
-            color: #fff;
-        }
-
-        .tagline {
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-size: 0.75rem;
-            color: var(--soft-gold);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        p {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 300;
-        }
-
-        /* Primary Button */
-        .btn-enter {
-            background: var(--soft-gold);
-            color: var(--forest-green);
-            padding: 1.2rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: inline-block;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        .btn-enter:hover {
-            transform: translateY(-5px);
-            background: #fff;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-        }
-
-        /* Loading Screen (Hidden by default) */
-        #loadingOverlay {
+        /* Floating particles animation */
+        .floating-particles {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--forest-green);
-            z-index: 1000;
-            display: none; /* Triggered via JS */
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(232, 196, 138, 0.15);
+            border-radius: 50%;
+            animation: floatParticle 12s infinite ease-in-out;
+        }
+
+        @keyframes floatParticle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.4; }
+            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            position: relative;
+            z-index: 3;
+            min-height: 100vh;
+            display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: var(--soft-gold);
+            text-align: center;
+            padding: 2rem;
         }
 
-        .loader-ring {
+        /* Elegant Glass Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(232, 196, 138, 0.25);
+            padding: 3rem 2.5rem;
+            border-radius: 64px;
+            max-width: 550px;
+            width: 100%;
+            box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.4);
+            transition: all 0.5s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(232, 196, 138, 0.5);
+            box-shadow: 0 40px 70px -25px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Logo Icon with animation */
+        .logo-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, rgba(232, 196, 138, 0.2), rgba(212, 163, 163, 0.15));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem auto;
+            border: 1px solid rgba(232, 196, 138, 0.4);
+            animation: gentlePulse 3s infinite ease-in-out;
+        }
+
+        .logo-icon i {
+            font-size: 2.8rem;
+            color: var(--golden-honey);
+            filter: drop-shadow(0 0 12px rgba(232, 196, 138, 0.4));
+        }
+
+        @keyframes gentlePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(232, 196, 138, 0.2); }
+            50% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(232, 196, 138, 0); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tagline {
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-size: 0.7rem;
+            color: var(--golden-honey);
+            margin-bottom: 1rem;
+            font-weight: 500;
+            word-spacing: 2px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--golden-honey), transparent);
+            margin: 1rem auto;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+            max-width: 380px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Small feature badges */
+        .feature-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.8);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(232, 196, 138, 0.2);
+        }
+
+        .badge i {
+            font-size: 0.65rem;
+            color: var(--golden-honey);
+        }
+
+        /* Enter Button */
+        .btn-enter {
+            background: linear-gradient(105deg, #E8C48A, #D4A854);
+            color: #2D4A3E;
+            padding: 1rem 2.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-enter i {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-enter:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(105deg, #F0D6A0, #E0B868);
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-enter:hover i {
+            transform: translateX(6px);
+        }
+
+        /* Social hints */
+        .social-hint {
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        .social-hint i {
+            margin: 0 6px;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .social-hint i:hover {
+            color: var(--golden-honey);
+        }
+
+        /* PROFESSIONAL LOADING OVERLAY - Enhanced with Custom Logo Image */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2D4A3E 0%, #1a2f27 100%);
+            z-index: 2000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transition: opacity 0.6s ease;
+            backdrop-filter: blur(0px);
+        }
+
+        .loading-logo-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loading-logo-ring {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid rgba(232, 196, 138, 0.2);
+            border-top: 2px solid var(--golden-honey);
+            border-right: 2px solid rgba(232, 196, 138, 0.4);
+            animation: spinReversed 1.2s linear infinite;
+        }
+
+        @keyframes spinReversed {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, rgba(232, 196, 138, 0.12), rgba(212, 163, 163, 0.08));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(232, 196, 138, 0.3);
+            z-index: 2;
+            backdrop-filter: blur(4px);
+            overflow: hidden;
+        }
+
+        /* Custom Logo Image Styling */
+        .loading-logo-img {
+            width: 85%;
+            height: 85%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            animation: gentlePulseLoading 1.8s infinite ease-in-out;
+        }
+
+        .loading-fallback-icon {
+            font-size: 3.5rem;
+            color: var(--golden-honey);
+            filter: drop-shadow(0 0 20px rgba(232, 196, 138, 0.5));
+            animation: gentlePulseLoading 1.8s infinite ease-in-out;
+            display: none;
+        }
+
+        @keyframes gentlePulseLoading {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 15px rgba(232,196,138,0.8); }
+        }
+
+        .loader-ring-premium {
             width: 80px;
             height: 80px;
-            border: 2px solid rgba(220, 193, 120, 0.1);
-            border-top: 2px solid var(--soft-gold);
+            border: 2px solid rgba(232, 196, 138, 0.15);
+            border-top: 2px solid var(--golden-honey);
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 2rem;
+            animation: spin 0.9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
         }
 
         @keyframes spin {
@@ -166,66 +376,290 @@
         .loading-text {
             font-family: 'Playfair Display', serif;
             font-style: italic;
+            color: var(--golden-honey);
             font-size: 1.2rem;
+            letter-spacing: 3px;
+            font-weight: 400;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .loading-subtext {
+            font-size: 0.7rem;
+            color: rgba(232, 196, 138, 0.6);
             letter-spacing: 2px;
-            animation: pulse 1.5s infinite;
+            margin-top: 0.25rem;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+        .loading-dots {
+            display: flex;
+            gap: 12px;
+            margin-top: 0.8rem;
         }
 
-        @media (max-width: 480px) {
-            h1 { font-size: 2.2rem; }
-            .glass-card { padding: 2rem 1.5rem; }
+        .loading-dots span {
+            width: 8px;
+            height: 8px;
+            background: var(--golden-honey);
+            border-radius: 50%;
+            animation: dotBounce 1.4s infinite ease-in-out;
+        }
+
+        .loading-dots span:nth-child(1) { animation-delay: 0s; }
+        .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes dotBounce {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.3; }
+            30% { transform: translateY(-10px); opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 550px) {
+            .glass-card {
+                padding: 2rem 1.5rem;
+                border-radius: 48px;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .tagline {
+                letter-spacing: 4px;
+                font-size: 0.6rem;
+            }
+            .badge {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.6rem;
+            }
+            .btn-enter {
+                padding: 0.8rem 2rem;
+                font-size: 0.85rem;
+                letter-spacing: 2px;
+            }
+            .logo-icon {
+                width: 75px;
+                height: 75px;
+            }
+            .logo-icon i {
+                font-size: 2.2rem;
+            }
+            .loading-logo-container {
+                width: 120px;
+                height: 120px;
+            }
+            .loading-logo-ring {
+                width: 120px;
+                height: 120px;
+            }
+            .loading-logo {
+                width: 95px;
+                height: 95px;
+            }
+            .loading-logo-img {
+                width: 85%;
+                height: 85%;
+            }
+        }
+
+        /* Hide scrollbar during loading */
+        body.loading-active {
+            overflow: hidden;
+        }
+
+        /* Brand watermark */
+        .brand-watermark {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.2);
+            z-index: 5;
+            pointer-events: none;
+            font-family: monospace;
         }
     </style>
 </head>
 <body>
 
+    <!-- Animated Background -->
     <div class="hero-bg"></div>
+    
+    <!-- Floating Particles for ethereal feel -->
+    <div class="floating-particles" id="particlesContainer"></div>
 
-    <div class="content-wrapper">
+    <!-- Main Content -->
+    <div class="content-wrapper" style="background: url('./images/home\ page.jpg');">
         <div class="glass-card">
             <div class="logo-icon">
-                <i class="fas fa-spa"></i>
-            </div>
-            <div class="tagline">Mobile Spa Experience</div>
+    <img src="./images/logo.jpeg" alt="Peaceful Palm Spa Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+</div>
+            <div class="tagline">Mobile Spa </div>
             <h1>Peaceful Palms</h1>
-            <p>Escape the ordinary. Professional luxury wellness delivered to your private sanctuary.</p>
+            <div class="divider"></div>
+            <p>Escape the ordinary. Professional luxury wellness delivered to your private sanctuary — wherever you are.</p>
+           <div class="feature-badges">
+    <span class="badge"><i class="fas fa-seedling"></i> Premium Natural Oils</span>
+    <span class="badge"><i class="fas fa-certificate"></i> Certified Wellness Pros</span>
+    <span class="badge"><i class="fas fa-spa"></i> Mobile Serenity Anywhere</span>
+</div>
             
             <button id="entryTrigger" class="btn-enter">
-                Begin Journey <i class="fas fa-chevron-right" style="margin-left: 10px; font-size: 0.8rem;"></i>
+                Begin Journey <i class="fas fa-arrow-right"></i>
             </button>
+            
+            <div class="social-hint">
+                <span>follow the calm</span>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-whatsapp"></i>
+            </div>
         </div>
     </div>
 
-    <div id="loadingOverlay">
-        <div class="loader-ring"></div>
-        <div class="loading-text">Preparing your serenity...</div>
+    <!-- Professional Loading Overlay with Custom Logo Image -->
+    <div id="loadingOverlay" class="loading-overlay" style="background: url('./images/landing\ page.png');">
+        <div class="loading-logo-container">
+            <div class="loading-logo-ring"></div>
+            <div class="loading-logo">
+                <!-- Custom Logo Image - Update the src path to your actual logo location -->
+                <img src="./images/logo.jpeg" alt="Peaceful Palms Logo" class="loading-logo-img" id="customLogoImg" onerror="handleLogoError()">
+                <i class="fas fa-palm-tree loading-fallback-icon" id="fallbackIcon"></i>
+            </div>
+        </div>
+        <div class="loader-ring-premium"></div>
+        <div class="loading-text">Peaceful Palms</div>
+        <div class="loading-subtext">preparing your sanctuary</div>
+        <div class="loading-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
+    
+    <div class="brand-watermark">✦ PEACEFUL PALMS SPA ✦</div>
 
     <script>
+        // Handle logo image load error - fallback to icon
+        function handleLogoError() {
+            const logoImg = document.getElementById('customLogoImg');
+            const fallbackIcon = document.getElementById('fallbackIcon');
+            if (logoImg && fallbackIcon) {
+                logoImg.style.display = 'none';
+                fallbackIcon.style.display = 'flex';
+            }
+        }
+        
+        // Pre-check logo loading and show appropriate element
+        function initLogo() {
+            const logoImg = document.getElementById('customLogoImg');
+            const fallbackIcon = document.getElementById('fallbackIcon');
+            if (logoImg && logoImg.complete && logoImg.naturalWidth === 0) {
+                handleLogoError();
+            } else if (logoImg) {
+                logoImg.style.display = 'block';
+                if (fallbackIcon) fallbackIcon.style.display = 'none';
+            }
+        }
+        
+        // Create floating particles for ambiance
+        function createParticles() {
+            const container = document.getElementById('particlesContainer');
+            const particleCount = 28;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                const size = Math.random() * 45 + 8;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = Math.random() * 18 + 12 + 's';
+                particle.style.opacity = Math.random() * 0.25 + 0.08;
+                container.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+        initLogo();
+        
+        // Entry button logic with premium transition
         const entryTrigger = document.getElementById('entryTrigger');
         const loadingOverlay = document.getElementById('loadingOverlay');
-
-        entryTrigger.addEventListener('click', function() {
-            // 1. Show the loading screen
-            loadingOverlay.style.display = 'flex';
+        const body = document.body;
+        
+        entryTrigger.addEventListener('click', function(e) {
+            e.preventDefault();
             
-            // 2. Add a slight fade in effect for the loading screen
+            // Prevent multiple clicks
+            if (entryTrigger.disabled) return;
+            entryTrigger.disabled = true;
+            
+            // Add class to body to prevent scroll
+            body.classList.add('loading-active');
+            
+            // Show loading overlay with fade in
+            loadingOverlay.style.display = 'flex';
             loadingOverlay.style.opacity = '0';
+            
             setTimeout(() => {
-                loadingOverlay.style.transition = 'opacity 0.5s ease';
+                loadingOverlay.style.transition = 'opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
                 loadingOverlay.style.opacity = '1';
-            }, 10);
-
-            // 3. Delay for 2.5 seconds, then redirect
+            }, 20);
+            
+            // Subtle haptic feedback on supported devices
+            if (navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+            
+            // Preload the gift.html page for faster rendering
+            const preloadGift = document.createElement('link');
+            preloadGift.rel = 'preload';
+            preloadGift.as = 'document';
+            preloadGift.href = 'gift.html';
+            document.head.appendChild(preloadGift);
+            
+            // Elegant redirect after 2.5 seconds (premium feel)
             setTimeout(() => {
-                window.location.href = 'home.html';
+                window.location.href = 'gift.html';
             }, 2500);
         });
+        
+        // Add a subtle parallax effect on mouse move for depth
+        document.addEventListener('mousemove', function(e) {
+            const bg = document.querySelector('.hero-bg');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            if (bg) {
+                bg.style.transform = `scale(1.05) translate(${mouseX * 6}px, ${mouseY * 6}px)`;
+            }
+        });
+        
+        // Add hover animation to badge items
+        const badges = document.querySelectorAll('.badge');
+        badges.forEach(badge => {
+            badge.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+                this.style.transition = 'transform 0.2s ease';
+                this.style.backgroundColor = 'rgba(255,255,255,0.15)';
+            });
+            badge.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.backgroundColor = 'rgba(255,255,255,0.1)';
+            });
+        });
+        
+        // Add a subtle glow effect to the CTA on first load
+        setTimeout(() => {
+            const btn = document.querySelector('.btn-enter');
+            if(btn) {
+                btn.style.transition = 'all 0.5s ease';
+                btn.style.boxShadow = '0 0 20px rgba(232,196,138,0.4)';
+                setTimeout(() => {
+                    btn.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.2)';
+                }, 800);
+            }
+        }, 500);
     </script>
 </body>
 </html>
