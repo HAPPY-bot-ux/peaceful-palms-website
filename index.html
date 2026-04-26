@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Peaceful Palms | Luxury Mobile Spa — Welcome to Serenity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <title>Peaceful Palms | Luxury Mobile Spa — Serenity at your door</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
@@ -17,9 +17,10 @@
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
+            background: #1a2a23; /* fallback deep earthy tone */
         }
 
-        /* Refined feminine color palette */
+        /* Refined feminine color palette — softer, more breathable */
         :root {
             --deep-forest: #2D4A3E;
             --soft-rose: #D4A3A3;
@@ -28,33 +29,33 @@
             --warm-amber: #D4A854;
             --cream-beige: #F9F2EA;
             --milk-white: #FFFDF9;
-            --glass-white: rgba(255, 255, 255, 0.12);
-            --glass-dark: rgba(45, 74, 62, 0.25);
+            --glass-white: rgba(255, 255, 255, 0.1);
+            --glass-dark: rgba(45, 74, 62, 0.2);
         }
 
-        /* Hero Background with subtle animation */
+        /* Hero Background with subtle slow zoom, but less aggressive on mobile */
         .hero-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, 
-                rgba(45, 74, 62, 0.4) 0%, 
-                rgba(80, 60, 55, 0.45) 100%),
-                url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDQwIDQwIj48cGF0aCBmaWxsPSIjZThjNDhhIiBmaWxsLW9wYWNpdHk9IjAuMDMiIGQ9Ik0yMCAzLjVjOS4xIDAgMTYuNSA3LjQgMTYuNSAxNi41UzI5LjEgMzYuNSAyMCAzNi41IDMuNSAyOS4xIDMuNSAyMCAxMC45IDMuNSAyMCAzLjV6Ii8+PC9zdmc+');
+            background: linear-gradient(125deg, 
+                rgba(35, 55, 48, 0.75) 0%, 
+                rgba(60, 45, 42, 0.7) 100%),
+                url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDQwIDQwIj48cGF0aCBmaWxsPSIjZThjNDhhIiBmaWxsLW9wYWNpdHk9IjAuMDYiIGQ9Ik0yMCAzLjVjOS4xIDAgMTYuNSA3LjQgMTYuNSAxNi41UzI5LjEgMzYuNSAyMCAzNi41IDMuNSAyOS4xIDMuNSAyMCAxMC45IDMuNSAyMCAzLjV6Ii8+PC9zdmc+');
             background-size: cover;
-            background-position: center;
+            background-position: center 30%;
             z-index: 1;
-            animation: slowZoom 25s infinite alternate ease-in-out;
+            animation: slowZoom 20s infinite alternate ease-in-out;
         }
 
         @keyframes slowZoom {
             0% { transform: scale(1); }
-            100% { transform: scale(1.08); }
+            100% { transform: scale(1.06); }
         }
 
-        /* Overlay gradient for depth */
+        /* Overlay gradient softer for better text contrast */
         .hero-bg::after {
             content: '';
             position: absolute;
@@ -62,11 +63,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 30% 40%, rgba(255,255,240,0.08) 0%, rgba(0,0,0,0.25) 100%);
+            background: radial-gradient(circle at 20% 40%, rgba(0,0,0,0.2) 0%, rgba(20,20,15,0.4) 100%);
             pointer-events: none;
         }
 
-        /* Floating particles animation */
+        /* Floating particles - fewer and more delicate on mobile */
         .floating-particles {
             position: fixed;
             top: 0;
@@ -80,56 +81,49 @@
 
         .particle {
             position: absolute;
-            background: rgba(232, 196, 138, 0.15);
+            background: rgba(232, 196, 138, 0.18);
             border-radius: 50%;
-            animation: floatParticle 12s infinite ease-in-out;
+            animation: floatParticle 14s infinite ease-in-out;
         }
 
         @keyframes floatParticle {
             0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.4; }
+            15% { opacity: 0.5; }
+            85% { opacity: 0.4; }
             100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
         }
 
-        /* Main Content */
+        /* Main content — centered with balanced padding for mobile */
         .content-wrapper {
             position: relative;
             z-index: 3;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
-        /* Elegant Glass Card */
+        /* Elegant Glass Card — redesigned for mobile: airy, spacious, rounded */
         .glass-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(232, 196, 138, 0.25);
-            padding: 3rem 2.5rem;
-            border-radius: 64px;
-            max-width: 550px;
+            background: rgba(25, 35, 30, 0.45);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(232, 196, 138, 0.3);
+            padding: 2rem 1.8rem;
+            border-radius: 48px;
+            max-width: 460px;
             width: 100%;
-            box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.4);
-            transition: all 0.5s ease;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(232, 196, 138, 0.5);
-            box-shadow: 0 40px 70px -25px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 25px 45px -15px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.9s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -137,170 +131,184 @@
             }
         }
 
-        /* Logo Icon with animation */
+        /* Logo Icon — cleaner and less heavy */
         .logo-icon {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, rgba(232, 196, 138, 0.2), rgba(212, 163, 163, 0.15));
+            width: 85px;
+            height: 85px;
+            background: rgba(232, 196, 138, 0.12);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.2rem auto;
-            border: 1px solid rgba(232, 196, 138, 0.4);
+            margin: 0 auto 1rem auto;
+            border: 1px solid rgba(232, 196, 138, 0.45);
             animation: gentlePulse 3s infinite ease-in-out;
+            overflow: hidden;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.1);
         }
 
-        .logo-icon i {
-            font-size: 2.8rem;
-            color: var(--golden-honey);
-            filter: drop-shadow(0 0 12px rgba(232, 196, 138, 0.4));
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
         }
 
         @keyframes gentlePulse {
             0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(232, 196, 138, 0.2); }
-            50% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(232, 196, 138, 0); }
+            50% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(232, 196, 138, 0); }
         }
 
+        /* Typography — breathing space, refined for smaller screens */
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 2.6rem;
             font-weight: 600;
-            color: white;
-            letter-spacing: -0.5px;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+            color: #FFFEF7;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.35rem;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
         }
 
         .tagline {
             text-transform: uppercase;
-            letter-spacing: 6px;
-            font-size: 0.7rem;
+            letter-spacing: 5px;
+            font-size: 0.65rem;
             color: var(--golden-honey);
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             font-weight: 500;
             word-spacing: 2px;
         }
 
         .divider {
-            width: 60px;
+            width: 55px;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--golden-honey), transparent);
-            margin: 1rem auto;
+            margin: 0.9rem auto;
         }
 
         p {
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.85);
-            font-weight: 300;
-            max-width: 380px;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            margin-bottom: 1.6rem;
+            color: rgba(255, 250, 240, 0.9);
+            font-weight: 350;
+            max-width: 340px;
             margin-left: auto;
             margin-right: auto;
+            letter-spacing: 0.2px;
         }
 
-        /* Small feature badges */
+        /* Feature badges — more compact but elegant */
         .feature-badges {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 0.7rem;
+            margin-bottom: 1.8rem;
             flex-wrap: wrap;
         }
 
         .badge {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(4px);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
+            background: rgba(35, 45, 40, 0.55);
+            backdrop-filter: blur(6px);
+            padding: 0.35rem 1rem;
+            border-radius: 60px;
             font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 250, 235, 0.9);
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            border: 1px solid rgba(232, 196, 138, 0.2);
+            border: 1px solid rgba(232, 196, 138, 0.25);
+            font-weight: 500;
+            transition: all 0.2s ease;
         }
 
         .badge i {
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             color: var(--golden-honey);
         }
 
-        /* Enter Button */
+        /* Primary CTA button */
         .btn-enter {
-            background: linear-gradient(105deg, #E8C48A, #D4A854);
-            color: #2D4A3E;
-            padding: 1rem 2.8rem;
+            background: linear-gradient(115deg, #E8C48A, #D4A854);
+            color: #263f34;
+            padding: 0.9rem 2rem;
             border-radius: 60px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            letter-spacing: 2.5px;
+            transition: all 0.35s ease;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
+            gap: 10px;
             border: none;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 22px -8px rgba(0, 0, 0, 0.3);
+            width: auto;
+            min-width: 210px;
         }
 
         .btn-enter i {
-            transition: transform 0.3s ease;
+            transition: transform 0.25s ease;
+            font-size: 0.85rem;
         }
 
         .btn-enter:hover {
-            transform: translateY(-5px);
-            background: linear-gradient(105deg, #F0D6A0, #E0B868);
-            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+            transform: translateY(-3px);
+            background: linear-gradient(115deg, #F0D6A0, #E0B868);
+            box-shadow: 0 16px 28px -10px rgba(0, 0, 0, 0.35);
         }
 
-        .btn-enter:hover i {
-            transform: translateX(6px);
+        .btn-enter:active {
+            transform: translateY(1px);
         }
 
-        /* Social hints */
+        /* Social hint — minimal but visible */
         .social-hint {
-            margin-top: 2rem;
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.5);
-            letter-spacing: 1px;
+            margin-top: 1.8rem;
+            font-size: 0.65rem;
+            color: rgba(245, 240, 225, 0.5);
+            letter-spacing: 1.2px;
         }
 
         .social-hint i {
             margin: 0 6px;
             transition: color 0.2s;
             cursor: pointer;
+            font-size: 0.8rem;
         }
 
         .social-hint i:hover {
             color: var(--golden-honey);
         }
 
-        /* PROFESSIONAL LOADING OVERLAY - Enhanced with Custom Logo Image */
+        /* PROFESSIONAL LOADING OVERLAY - full size with custom image */
         .loading-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #2D4A3E 0%, #1a2f27 100%);
+            background: radial-gradient(circle at center, #21332b, #0f1915);
             z-index: 2000;
             display: none;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             transition: opacity 0.6s ease;
-            backdrop-filter: blur(0px);
+            backdrop-filter: blur(4px);
         }
 
         .loading-logo-container {
             position: relative;
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -308,12 +316,12 @@
 
         .loading-logo-ring {
             position: absolute;
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             border: 2px solid rgba(232, 196, 138, 0.2);
             border-top: 2px solid var(--golden-honey);
-            border-right: 2px solid rgba(232, 196, 138, 0.4);
+            border-right: 2px solid rgba(232, 196, 138, 0.5);
             animation: spinReversed 1.2s linear infinite;
         }
 
@@ -323,49 +331,46 @@
         }
 
         .loading-logo {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, rgba(232, 196, 138, 0.12), rgba(212, 163, 163, 0.08));
+            width: 100px;
+            height: 100px;
+            background: rgba(232, 196, 138, 0.08);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(232, 196, 138, 0.3);
+            border: 1px solid rgba(232, 196, 138, 0.4);
             z-index: 2;
-            backdrop-filter: blur(4px);
             overflow: hidden;
         }
 
-        /* Custom Logo Image Styling */
         .loading-logo-img {
             width: 85%;
             height: 85%;
             object-fit: cover;
             border-radius: 50%;
-            transition: transform 0.3s ease;
             animation: gentlePulseLoading 1.8s infinite ease-in-out;
         }
 
         .loading-fallback-icon {
-            font-size: 3.5rem;
+            font-size: 3rem;
             color: var(--golden-honey);
-            filter: drop-shadow(0 0 20px rgba(232, 196, 138, 0.5));
+            filter: drop-shadow(0 0 12px rgba(232, 196, 138, 0.5));
             animation: gentlePulseLoading 1.8s infinite ease-in-out;
             display: none;
         }
 
         @keyframes gentlePulseLoading {
             0%, 100% { transform: scale(1); opacity: 0.9; }
-            50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 15px rgba(232,196,138,0.8); }
+            50% { transform: scale(1.05); opacity: 1; }
         }
 
         .loader-ring-premium {
-            width: 80px;
-            height: 80px;
-            border: 2px solid rgba(232, 196, 138, 0.15);
+            width: 65px;
+            height: 65px;
+            border: 2px solid rgba(232, 196, 138, 0.2);
             border-top: 2px solid var(--golden-honey);
             border-radius: 50%;
-            animation: spin 0.9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            animation: spin 0.85s infinite cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         @keyframes spin {
@@ -377,29 +382,28 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             color: var(--golden-honey);
-            font-size: 1.2rem;
-            letter-spacing: 3px;
+            font-size: 1rem;
+            letter-spacing: 2.5px;
             font-weight: 400;
-            margin-top: 0.5rem;
-            text-transform: uppercase;
+            margin-top: 0.2rem;
         }
 
         .loading-subtext {
-            font-size: 0.7rem;
-            color: rgba(232, 196, 138, 0.6);
+            font-size: 0.65rem;
+            color: rgba(232, 196, 138, 0.7);
             letter-spacing: 2px;
-            margin-top: 0.25rem;
+            margin-top: 0rem;
         }
 
         .loading-dots {
             display: flex;
-            gap: 12px;
-            margin-top: 0.8rem;
+            gap: 10px;
+            margin-top: 0.5rem;
         }
 
         .loading-dots span {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background: var(--golden-honey);
             border-radius: 50%;
             animation: dotBounce 1.4s infinite ease-in-out;
@@ -410,69 +414,97 @@
         .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
 
         @keyframes dotBounce {
-            0%, 60%, 100% { transform: translateY(0); opacity: 0.3; }
-            30% { transform: translateY(-10px); opacity: 1; }
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-8px); opacity: 1; }
         }
 
-        /* Responsive */
-        @media (max-width: 550px) {
+        /* Responsive redesign: mobile-first polishing */
+        @media (max-width: 480px) {
             .glass-card {
-                padding: 2rem 1.5rem;
-                border-radius: 48px;
+                padding: 1.8rem 1.4rem;
+                border-radius: 44px;
             }
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.1rem;
+                letter-spacing: -0.2px;
             }
             .tagline {
-                letter-spacing: 4px;
+                letter-spacing: 3.5px;
                 font-size: 0.6rem;
+            }
+            .feature-badges {
+                gap: 0.5rem;
+                margin-bottom: 1.5rem;
             }
             .badge {
-                padding: 0.3rem 0.8rem;
+                padding: 0.25rem 0.85rem;
                 font-size: 0.6rem;
             }
+            .badge i {
+                font-size: 0.6rem;
+            }
+            p {
+                font-size: 0.84rem;
+                line-height: 1.5;
+                margin-bottom: 1.5rem;
+                max-width: 100%;
+                padding: 0 0.2rem;
+            }
             .btn-enter {
-                padding: 0.8rem 2rem;
-                font-size: 0.85rem;
+                padding: 0.75rem 1.6rem;
+                font-size: 0.8rem;
                 letter-spacing: 2px;
+                min-width: 190px;
             }
             .logo-icon {
-                width: 75px;
-                height: 75px;
+                width: 74px;
+                height: 74px;
+                margin-bottom: 0.8rem;
             }
-            .logo-icon i {
-                font-size: 2.2rem;
+            .divider {
+                margin: 0.7rem auto;
             }
-            .loading-logo-container {
-                width: 120px;
-                height: 120px;
+            .social-hint {
+                margin-top: 1.4rem;
+                font-size: 0.6rem;
             }
-            .loading-logo-ring {
-                width: 120px;
-                height: 120px;
+            .content-wrapper {
+                padding: 1rem;
             }
-            .loading-logo {
-                width: 95px;
-                height: 95px;
-            }
-            .loading-logo-img {
-                width: 85%;
-                height: 85%;
+            .brand-watermark {
+                display: none; /* cleaner on small screens */
             }
         }
 
-        /* Hide scrollbar during loading */
+        /* Very small devices */
+        @media (max-width: 380px) {
+            h1 {
+                font-size: 1.85rem;
+            }
+            .glass-card {
+                padding: 1.5rem 1.2rem;
+            }
+            .badge {
+                font-size: 0.55rem;
+                padding: 0.2rem 0.7rem;
+            }
+            .btn-enter {
+                padding: 0.7rem 1.4rem;
+                font-size: 0.75rem;
+            }
+        }
+
         body.loading-active {
             overflow: hidden;
         }
 
-        /* Brand watermark */
+        /* brand watermark subtle — optional for desktop but hidden on mobile */
         .brand-watermark {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 0.6rem;
-            color: rgba(255,255,255,0.2);
+            bottom: 15px;
+            right: 18px;
+            font-size: 0.55rem;
+            color: rgba(255,255,245,0.2);
             z-index: 5;
             pointer-events: none;
             font-family: monospace;
@@ -484,51 +516,43 @@
     <!-- Animated Background -->
     <div class="hero-bg"></div>
     
-    <!-- Floating Particles for ethereal feel -->
+    <!-- Floating Particles (fewer for performance) -->
     <div class="floating-particles" id="particlesContainer"></div>
 
-    <!-- Main Content -->
+    <!-- Main Content — redesigned for clarity and elegance -->
     <div class="content-wrapper" style="background: url('./images/home\ page.jpg');">
         <div class="glass-card">
             <div class="logo-icon">
-    <img src="./images/logo.jpeg" alt="Peaceful Palm Spa Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-</div>
-            <div class="tagline">Mobile Spa </div>
+                <img src="./images/logo.jpeg" alt="Peaceful Palm Spa Logo" onerror="this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20fill%3D%22%23E8C48A%22%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2245%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2267%22%20text-anchor%3D%22middle%22%20fill%3D%22%232D4A3E%22%20font-size%3D%2238%22%20font-family%3D%22Arial%22%3E🌿%3C%2Ftext%3E%3C%2Fsvg%3E'">
+            </div>
+            <div class="tagline">Mobile Spa • Atelier</div>
             <h1>Peaceful Palms</h1>
             <div class="divider"></div>
-            <p>Escape the ordinary. Professional luxury wellness delivered to your private sanctuary — wherever you are.</p>
-           <div class="feature-badges">
-    <span class="badge"><i class="fas fa-seedling"></i> Premium Natural Oils</span>
-    <span class="badge"><i class="fas fa-certificate"></i> Certified Wellness Pros</span>
-    <span class="badge"><i class="fas fa-spa"></i> Mobile Serenity Anywhere</span>
-</div>
+            <p>Luxury wellness journeys delivered to your private escape. Where serenity meets sophistication.</p>
+            <div class="feature-badges">
+                <span class="badge"><i class="fas fa-seedling"></i> Organic Rituals</span>
+                <span class="badge"><i class="fas fa-certificate"></i> Masters of Calm</span>
+                <span class="badge"><i class="fas fa-spa"></i> Anywhere, Anytime</span>
+            </div>
             
             <button id="entryTrigger" class="btn-enter">
                 Begin Journey <i class="fas fa-arrow-right"></i>
-            </button>
-            
-            <div class="social-hint">
-                <span>follow the calm</span>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-whatsapp"></i>
-            </div>
+            </button>                       
         </div>
     </div>
 
-    <!-- Professional Loading Overlay with Custom Logo Image -->
+    <!-- Loading Overlay with Custom Logo Imagery -->
     <div id="loadingOverlay" class="loading-overlay" style="background: url('./images/landing\ page.png');">
         <div class="loading-logo-container">
             <div class="loading-logo-ring"></div>
             <div class="loading-logo">
-                <!-- Custom Logo Image - Update the src path to your actual logo location -->
                 <img src="./images/logo.jpeg" alt="Peaceful Palms Logo" class="loading-logo-img" id="customLogoImg" onerror="handleLogoError()">
                 <i class="fas fa-palm-tree loading-fallback-icon" id="fallbackIcon"></i>
             </div>
         </div>
         <div class="loader-ring-premium"></div>
         <div class="loading-text">Peaceful Palms</div>
-        <div class="loading-subtext">preparing your sanctuary</div>
+        <div class="loading-subtext">unfolding tranquility</div>
         <div class="loading-dots">
             <span></span>
             <span></span>
@@ -536,10 +560,10 @@
         </div>
     </div>
     
-    <div class="brand-watermark">✦ PEACEFUL PALMS SPA ✦</div>
+    <div class="brand-watermark">✦ PEACEFUL PALMS ✦</div>
 
     <script>
-        // Handle logo image load error - fallback to icon
+        // Handle logo image load error gracefully
         function handleLogoError() {
             const logoImg = document.getElementById('customLogoImg');
             const fallbackIcon = document.getElementById('fallbackIcon');
@@ -547,119 +571,137 @@
                 logoImg.style.display = 'none';
                 fallbackIcon.style.display = 'flex';
             }
+            // Also handle main logo on card
+            const mainLogoImg = document.querySelector('.logo-icon img');
+            if (mainLogoImg && mainLogoImg.complete && mainLogoImg.naturalWidth === 0) {
+                mainLogoImg.src = 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20fill%3D%22%23E8C48A%22%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2245%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2267%22%20text-anchor%3D%22middle%22%20fill%3D%22%232D4A3E%22%20font-size%3D%2238%22%20font-family%3D%22Arial%22%3E🌿%3C%2Ftext%3E%3C%2Fsvg%3E';
+            }
         }
         
-        // Pre-check logo loading and show appropriate element
-        function initLogo() {
-            const logoImg = document.getElementById('customLogoImg');
-            const fallbackIcon = document.getElementById('fallbackIcon');
-            if (logoImg && logoImg.complete && logoImg.naturalWidth === 0) {
+        function initLogoFallback() {
+            const mainImg = document.querySelector('.logo-icon img');
+            if (mainImg) {
+                mainImg.onerror = function() {
+                    this.src = 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20fill%3D%22%23E8C48A%22%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2245%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2267%22%20text-anchor%3D%22middle%22%20fill%3D%22%232D4A3E%22%20font-size%3D%2238%22%20font-family%3D%22Arial%22%3E🌿%3C%2Ftext%3E%3C%2Fsvg%3E';
+                };
+            }
+            const loadingImg = document.getElementById('customLogoImg');
+            if (loadingImg && loadingImg.complete && loadingImg.naturalWidth === 0) {
                 handleLogoError();
-            } else if (logoImg) {
-                logoImg.style.display = 'block';
+            } else if (loadingImg) {
+                loadingImg.style.display = 'block';
+                const fallbackIcon = document.getElementById('fallbackIcon');
                 if (fallbackIcon) fallbackIcon.style.display = 'none';
             }
         }
         
-        // Create floating particles for ambiance
+        // create fewer particles for mobile performance but still elegant
         function createParticles() {
             const container = document.getElementById('particlesContainer');
-            const particleCount = 28;
+            if (!container) return;
+            // determine particle count based on screen width for better performance
+            const particleCount = window.innerWidth < 600 ? 18 : 26;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
-                const size = Math.random() * 45 + 8;
+                const size = Math.random() * 35 + 6;
                 particle.style.width = size + 'px';
                 particle.style.height = size + 'px';
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = Math.random() * 18 + 12 + 's';
-                particle.style.opacity = Math.random() * 0.25 + 0.08;
+                particle.style.animationDelay = Math.random() * 14 + 's';
+                particle.style.animationDuration = Math.random() * 16 + 10 + 's';
+                particle.style.opacity = Math.random() * 0.2 + 0.05;
                 container.appendChild(particle);
             }
         }
         
         createParticles();
-        initLogo();
+        initLogoFallback();
         
-        // Entry button logic with premium transition
+        // Button transition with smooth loading experience
         const entryTrigger = document.getElementById('entryTrigger');
         const loadingOverlay = document.getElementById('loadingOverlay');
-        const body = document.body;
+        const bodyEl = document.body;
         
-        entryTrigger.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Prevent multiple clicks
-            if (entryTrigger.disabled) return;
-            entryTrigger.disabled = true;
-            
-            // Add class to body to prevent scroll
-            body.classList.add('loading-active');
-            
-            // Show loading overlay with fade in
-            loadingOverlay.style.display = 'flex';
-            loadingOverlay.style.opacity = '0';
-            
-            setTimeout(() => {
-                loadingOverlay.style.transition = 'opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
-                loadingOverlay.style.opacity = '1';
-            }, 20);
-            
-            // Subtle haptic feedback on supported devices
-            if (navigator.vibrate) {
-                navigator.vibrate(50);
-            }
-            
-            // Preload the gift.html page for faster rendering
-            const preloadGift = document.createElement('link');
-            preloadGift.rel = 'preload';
-            preloadGift.as = 'document';
-            preloadGift.href = 'gift.html';
-            document.head.appendChild(preloadGift);
-            
-            // Elegant redirect after 2.5 seconds (premium feel)
-            setTimeout(() => {
-                window.location.href = 'gift.html';
-            }, 2500);
-        });
+        if (entryTrigger) {
+            entryTrigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (entryTrigger.disabled) return;
+                entryTrigger.disabled = true;
+                
+                bodyEl.classList.add('loading-active');
+                loadingOverlay.style.display = 'flex';
+                loadingOverlay.style.opacity = '0';
+                
+                setTimeout(() => {
+                    loadingOverlay.style.transition = 'opacity 0.65s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
+                    loadingOverlay.style.opacity = '1';
+                }, 20);
+                
+                // subtle vibration if available
+                if (navigator.vibrate) navigator.vibrate(30);
+                
+                // preload gift page for snappier feel
+                const preloadLink = document.createElement('link');
+                preloadLink.rel = 'preload';
+                preloadLink.as = 'document';
+                preloadLink.href = 'gift.html';
+                document.head.appendChild(preloadLink);
+                
+                // elegant redirect after 2.4 seconds (feels premium)
+                setTimeout(() => {
+                    window.location.href = 'gift.html';
+                }, 2400);
+            });
+        }
         
-        // Add a subtle parallax effect on mouse move for depth
+        // Parallax effect on hero for gentle depth (non intrusive)
         document.addEventListener('mousemove', function(e) {
             const bg = document.querySelector('.hero-bg');
+            if (!bg) return;
             const mouseX = e.clientX / window.innerWidth;
             const mouseY = e.clientY / window.innerHeight;
-            if (bg) {
-                bg.style.transform = `scale(1.05) translate(${mouseX * 6}px, ${mouseY * 6}px)`;
-            }
+            bg.style.transform = `scale(1.04) translate(${mouseX * 5}px, ${mouseY * 5}px)`;
         });
         
-        // Add hover animation to badge items
+        // Hover animation for badges but mobile friendly
         const badges = document.querySelectorAll('.badge');
         badges.forEach(badge => {
             badge.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-2px)';
-                this.style.transition = 'transform 0.2s ease';
-                this.style.backgroundColor = 'rgba(255,255,255,0.15)';
+                this.style.backgroundColor = 'rgba(55, 70, 60, 0.65)';
             });
             badge.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0)';
-                this.style.backgroundColor = 'rgba(255,255,255,0.1)';
+                this.style.backgroundColor = 'rgba(35, 45, 40, 0.55)';
             });
         });
         
-        // Add a subtle glow effect to the CTA on first load
+        // subtle glow to CTA on load for inviting feel
         setTimeout(() => {
             const btn = document.querySelector('.btn-enter');
-            if(btn) {
-                btn.style.transition = 'all 0.5s ease';
-                btn.style.boxShadow = '0 0 20px rgba(232,196,138,0.4)';
+            if (btn) {
+                btn.style.transition = 'all 0.4s ease';
+                btn.style.boxShadow = '0 0 18px rgba(232,196,138,0.45)';
                 setTimeout(() => {
-                    btn.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.2)';
-                }, 800);
+                    btn.style.boxShadow = '0 10px 22px -8px rgba(0, 0, 0, 0.3)';
+                }, 700);
             }
-        }, 500);
+        }, 400);
+        
+        // adjust particles on resize to keep performance
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                const container = document.getElementById('particlesContainer');
+                if (container) {
+                    while (container.firstChild) container.removeChild(container.firstChild);
+                    createParticles();
+                }
+            }, 250);
+        });
     </script>
 </body>
 </html>
