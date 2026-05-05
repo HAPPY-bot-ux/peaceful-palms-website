@@ -25,7 +25,158 @@
             padding: 1.5rem;
         }
 
-        /* Loading Overlay */
+        /* ----- MODAL (compact, centered, mobile-first) ----- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(30, 25, 22, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 4000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.2s, opacity 0.2s ease;
+            padding: 1rem;
+        }
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .modal-container {
+            background: #FFFCF9;
+            max-width: 460px;
+            width: 100%;
+            border-radius: 36px;
+            box-shadow: 0 30px 40px -12px rgba(0,0,0,0.35);
+            border: 1px solid #E8D5CA;
+            overflow: hidden;
+            transform: scale(0.96);
+            transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .modal-overlay.active .modal-container {
+            transform: scale(1);
+        }
+        .modal-header {
+            background: linear-gradient(115deg, #F6EDE6, #FEF6F0);
+            padding: 1rem 1.5rem 0.6rem 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid #E8C48A;
+        }
+        .modal-header i {
+            font-size: 2rem;
+            color: #D6A88E;
+            background: white;
+            border-radius: 50px;
+            padding: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.03);
+        }
+        .modal-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #5C3E32;
+            margin: 0.3rem 0 0.2rem;
+        }
+        .modal-header p {
+            font-size: 0.65rem;
+            color: #B28B74;
+            letter-spacing: 0.5px;
+        }
+        .modal-body {
+            padding: 1.2rem 1.5rem 1.5rem;
+        }
+        .how-title {
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: #9C6E58;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .step-list {
+            list-style: none;
+            margin-bottom: 0.5rem;
+        }
+        .step-list li {
+            font-size: 0.75rem;
+            padding: 6px 0 6px 24px;
+            position: relative;
+            border-bottom: 1px solid #F0E2D8;
+            color: #4E3B32;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+        .step-list li i {
+            position: absolute;
+            left: 0;
+            top: 8px;
+            color: #E8C48A;
+            font-size: 0.7rem;
+        }
+        .cookie-note {
+            background: #FEF5ED;
+            border-radius: 24px;
+            padding: 0.6rem 0.8rem;
+            margin: 0.8rem 0 0.2rem;
+            font-size: 0.65rem;
+            color: #9B7A68;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #F3E1D6;
+        }
+        .modal-close-btn {
+            background: linear-gradient(115deg, #D9A78E, #C2866E);
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 50px;
+            font-weight: 700;
+            color: white;
+            font-size: 0.8rem;
+            margin-top: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+        }
+        .modal-close-btn:hover {
+            background: #B7785C;
+            transform: translateY(-1px);
+        }
+        /* tips floating button */
+        .tips-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #E8C48A;
+            color: #5C3E32;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 60px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+            z-index: 2000;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .tips-button:hover {
+            background: #D4A854;
+            transform: scale(1.02);
+        }
+        /* rest of original layout */
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -39,300 +190,122 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 1.5rem;
-            transition: all 0.3s ease;
+            gap: 1rem;
         }
-        .loading-overlay.active {
-            display: flex;
-        }
+        .loading-overlay.active { display: flex; }
         .loading-spinner {
-            width: 70px;
-            height: 70px;
-            border: 3px solid rgba(232, 196, 138, 0.2);
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(232,196,138,0.2);
             border-top: 3px solid #E8C48A;
             border-right: 3px solid #D4A854;
             border-radius: 50%;
-            animation: spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            animation: spin 0.8s infinite;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .loading-text {
-            font-family: 'Playfair Display', serif;
-            color: #E8C48A;
-            font-size: 1.2rem;
-            letter-spacing: 3px;
-        }
-        .loading-sub {
-            color: rgba(232, 196, 138, 0.7);
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-        }
-        .loading-dots {
-            display: flex;
-            gap: 10px;
-            margin-top: 0.5rem;
-        }
-        .loading-dots span {
-            width: 8px;
-            height: 8px;
-            background: #E8C48A;
-            border-radius: 50%;
-            animation: bounce 1.4s infinite;
-        }
-        .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
-        .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes bounce {
-            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-            30% { transform: translateY(-10px); opacity: 1; }
-        }
-
-        /* Main Container */
-        .app-container {
-            max-width: 1500px;
-            margin: 0 auto;
-        }
-
-        /* Header */
-        .luxury-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .app-container { max-width: 1500px; margin: 0 auto; }
+        .luxury-header { text-align: center; margin-bottom: 1.8rem; }
         .logo-circle {
-            width: 85px;
-            height: 85px;
+            width: 75px; height: 75px;
             background: linear-gradient(145deg, #FFFFFF, #F8F0EA);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
-            box-shadow: 0 20px 35px -12px rgba(92, 62, 50, 0.25);
-            border: 1px solid rgba(232, 196, 138, 0.4);
-            overflow: hidden;
+            margin: 0 auto 0.8rem;
+            box-shadow: 0 15px 25px -10px rgba(92,62,50,0.2);
+            border: 1px solid rgba(232,196,138,0.4);
         }
-        .logo-circle img {
-            width: 75%;
-            height: 75%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
+        .logo-circle img { width: 70%; border-radius: 50%; }
         .luxury-header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 1.9rem;
             background: linear-gradient(135deg, #5C3E32, #8B5E4C);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: -0.5px;
         }
-        .luxury-header p {
-            font-size: 0.7rem;
-            letter-spacing: 5px;
-            color: #B88B72;
-            text-transform: uppercase;
-        }
-
-        /* Two Column Layout */
-        .dashboard {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
+        .dashboard { display: flex; flex-wrap: wrap; gap: 1.8rem; }
         .form-section {
-            flex: 1.2;
-            min-width: 320px;
-            background: rgba(255, 255, 255, 0.85);
+            flex: 1.2; min-width: 300px;
+            background: rgba(255,255,255,0.85);
             backdrop-filter: blur(2px);
-            border-radius: 48px;
-            padding: 2rem;
-            box-shadow: 0 25px 45px -18px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(232, 196, 138, 0.3);
+            border-radius: 40px;
+            padding: 1.6rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            border: 1px solid rgba(232,196,138,0.3);
         }
-        .preview-section {
-            flex: 1;
-            min-width: 380px;
-        }
-
-        /* Form Styles */
-        .form-group {
-            margin-bottom: 1.3rem;
-        }
-        label {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: #9C6E58;
-            display: block;
-            margin-bottom: 6px;
-        }
+        .preview-section { flex: 1; min-width: 340px; }
+        .form-group { margin-bottom: 1rem; }
+        label { font-size: 0.65rem; font-weight: 700; color: #9C6E58; display: block; margin-bottom: 4px; letter-spacing: 0.5px; }
         input, select, textarea {
             width: 100%;
-            padding: 12px 18px;
-            border-radius: 60px;
+            padding: 10px 16px;
+            border-radius: 40px;
             border: 1.5px solid #F0E2D8;
             font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             background: white;
-            transition: all 0.2s;
         }
-        textarea {
-            border-radius: 28px;
-            resize: vertical;
-        }
-        input:focus, select:focus, textarea:focus {
-            border-color: #D6A88E;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(214,168,142,0.15);
-        }
+        textarea { border-radius: 24px; }
         .toggle-switch {
-            display: flex;
-            gap: 1rem;
+            display: flex; gap: 0.8rem;
             background: #F2E7E0;
             border-radius: 60px;
             padding: 4px;
+            margin-bottom: 1.2rem;
         }
         .toggle-option {
-            flex: 1;
-            text-align: center;
-            padding: 10px;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            color: #8B6957;
+            flex: 1; text-align: center; padding: 8px;
+            border-radius: 60px; font-weight: 600; font-size: 0.75rem;
+            cursor: pointer; color: #8B6957;
         }
         .toggle-option.active {
             background: linear-gradient(115deg, #D9A78E, #C2866E);
             color: white;
-            box-shadow: 0 4px 12px rgba(194,134,110,0.3);
         }
         .btn-primary {
             background: linear-gradient(115deg, #D9A78E, #C2866E);
-            border: none;
-            width: 100%;
-            padding: 14px;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 0.5rem;
+            border: none; width: 100%; padding: 12px;
+            border-radius: 60px; font-weight: 700; color: white;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            gap: 8px; margin-top: 0.5rem; font-size: 0.85rem;
         }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 25px -8px rgba(194,134,110,0.5);
-        }
-        .error-msg {
-            color: #E08E7A;
-            font-size: 0.6rem;
-            margin-top: 5px;
-            margin-left: 15px;
-            display: none;
-        }
-        .error-msg.show {
-            display: block;
-        }
-        .input-error {
-            border-color: #E08E7A !important;
-            background-color: #FFF8F6;
-        }
-
-        /* Voucher Preview Card */
+        .error-msg { color: #E08E7A; font-size: 0.55rem; margin-top: 4px; margin-left: 12px; display: none; }
+        .error-msg.show { display: block; }
+        .input-error { border-color: #E08E7A !important; background-color: #FFF8F6; }
         .voucher-card {
-            background: white;
-            border-radius: 40px;
-            overflow: hidden;
-            box-shadow: 0 30px 50px -20px rgba(0,0,0,0.2);
+            background: white; border-radius: 36px; overflow: hidden;
+            box-shadow: 0 20px 35px -15px rgba(0,0,0,0.15);
             border: 1px solid #F0E2D8;
         }
-        .voucher-gold {
-            height: 6px;
-            background: linear-gradient(90deg, #E8C48A, #D4A854, #E8C48A);
-        }
-        .voucher-inner {
-            padding: 1.8rem;
-        }
-        .voucher-badge {
-            background: #F6EDE6;
-            display: inline-block;
-            padding: 5px 14px;
-            border-radius: 50px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: #A5694F;
-            font-family: monospace;
-        }
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #F2E2D6;
-        }
-        .info-label {
-            font-weight: 700;
-            color: #8B5E4C;
-            font-size: 0.7rem;
-        }
-        .info-value {
-            font-weight: 600;
-            color: #3D2C24;
-            text-align: right;
-            font-size: 0.8rem;
-        }
+        .voucher-gold { height: 5px; background: linear-gradient(90deg, #E8C48A, #D4A854, #E8C48A); }
+        .voucher-inner { padding: 1.2rem; }
+        .info-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #F2E2D6; }
+        .info-label { font-weight: 700; color: #8B5E4C; font-size: 0.65rem; }
+        .info-value { font-weight: 600; color: #3D2C24; text-align: right; font-size: 0.7rem; }
         .bank-block {
-            background: #FEFAF7;
-            border-radius: 24px;
-            padding: 0.8rem 1rem;
-            margin: 1rem 0;
-            border: 1px solid #F0E0D6;
+            background: #FEFAF7; border-radius: 20px; padding: 0.6rem 0.8rem;
+            margin: 0.8rem 0; border: 1px solid #F0E0D6;
         }
         .secret-message-area {
-            background: #F9F0EA;
-            border-radius: 24px;
-            cursor: pointer;
-            margin-top: 1rem;
+            background: #F9F0EA; border-radius: 20px; cursor: pointer; margin-top: 0.8rem;
         }
-        .secret-header {
-            padding: 0.8rem;
-            text-align: center;
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: #C38468;
-        }
+        .secret-header { padding: 0.6rem; text-align: center; font-size: 0.65rem; font-weight: 600; color: #C38468; }
         .secret-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            background: #FFFBF8;
-            border-radius: 20px;
-            margin: 0 1rem 1rem;
+            max-height: 0; overflow: hidden; transition: max-height 0.25s ease;
+            background: #FFFBF8; border-radius: 16px; margin: 0 0.8rem 0.8rem;
         }
-        .secret-content.open {
-            max-height: 150px;
-            padding: 1rem;
-        }
-
-        /* Footer */
+        .secret-content.open { max-height: 120px; padding: 0.6rem; }
         .smart-footer {
-            margin-top: 3rem;
-            background: white;
-            border-radius: 48px;
-            padding: 1.8rem;
-            text-align: center;
-            border: 1px solid #F0E2D8;
+            margin-top: 2rem; background: white; border-radius: 40px;
+            padding: 1.2rem; text-align: center; border: 1px solid #F0E2D8;
         }
-
         @media (max-width: 780px) {
-            body { padding: 1rem; }
+            body { padding: 0.8rem; }
             .form-section, .preview-section { min-width: 100%; }
+            .modal-body { padding: 1rem 1.2rem 1.2rem; }
+            .step-list li { font-size: 0.7rem; padding: 5px 0 5px 22px; }
         }
     </style>
 </head>
@@ -346,32 +319,17 @@
         <h1>Peaceful Palm Spa</h1>
         <p>SMART VOUCHER STUDIO • EMAIL DELIVERY</p>
     </div>
-
     <div class="dashboard">
-        <!-- Form Section -->
         <div class="form-section">
             <div class="toggle-switch" id="voucherTypeToggle">
                 <div class="toggle-option active" data-type="self">🌸 For Myself</div>
                 <div class="toggle-option" data-type="gift">🎁 Gift Recipient</div>
             </div>
-
-            <div class="form-group">
-                <label><i class="far fa-user"></i> RECIPIENT NAME *</label>
-                <input type="text" id="recipientName" placeholder="Full name">
-                <div class="error-msg" id="errRecipient">Recipient name required</div>
-            </div>
-            <div class="form-group" id="senderGroup">
-                <label><i class="fas fa-heart"></i> SENDER / YOUR NAME *</label>
-                <input type="text" id="senderName" placeholder="Your name">
-                <div class="error-msg" id="errSender">Sender name required</div>
-            </div>
-            <div class="form-group">
-                <label><i class="fas fa-envelope"></i> EMAIL ADDRESS *</label>
-                <input type="email" id="emailAddress" placeholder="Where to send the voucher">
-                <div class="error-msg" id="errEmail">Valid email required</div>
-            </div>
-            <div class="form-group">
-                <label><i class="fas fa-spa"></i> SELECT SERVICE *</label>
+            <div class="form-group"><label><i class="far fa-user"></i> RECIPIENT NAME *</label><input type="text" id="recipientName" placeholder="Full name"><div class="error-msg" id="errRecipient">Recipient name required</div></div>
+            <div class="form-group" id="senderGroup"><label><i class="fas fa-heart"></i> SENDER / YOUR NAME *</label><input type="text" id="senderName" placeholder="Your name"><div class="error-msg" id="errSender">Sender name required</div></div>
+            <div class="form-group"><label><i class="fas fa-envelope"></i> YOUR EMAIL ADDRESS *</label><input type="email" id="emailAddress" placeholder="Your email for contact"><div class="error-msg" id="errEmail">Valid email required</div></div>
+            <div class="form-group"><label><i class="fab fa-whatsapp"></i> YOUR WHATSAPP NUMBER *</label><input type="tel" id="whatsappNumber" placeholder="e.g., 0678708737"><div class="error-msg" id="errWhatsapp">WhatsApp number required</div></div>
+            <div class="form-group"><label><i class="fas fa-spa"></i> SELECT SERVICE *</label>
                 <select id="serviceSelect">
                     <option value="" disabled selected>— Choose treatment —</option>
                     <option value="Swedish Massage (60min)|750">Swedish Massage (60min) – R750</option>
@@ -381,71 +339,160 @@
                     <option value="Indian Head Massage (30min)|600">Indian Head Massage (30min) – R600</option>
                     <option value="Reflexology (40min)|800">Reflexology (40min) – R800</option>
                     <option value="Signature Bliss (90min)|1150">Peaceful Palm Signature Bliss (90min) – R1150</option>
-                </select>
-                <div class="error-msg" id="errService">Please select a service</div>
+                </select><div class="error-msg" id="errService">Please select a service</div>
             </div>
-            <div class="form-group">
-                <label><i class="fas fa-calendar-alt"></i> DESIRED APPOINTMENT *</label>
-                <input type="datetime-local" id="appointmentDt">
-                <div class="error-msg" id="errAppointment">Select preferred date & time</div>
-            </div>
-            <div class="form-group">
-                <label><i class="fas fa-credit-card"></i> PAYMENT DATE *</label>
-                <input type="date" id="paymentDt">
-                <div class="error-msg" id="errPayment">Select payment date</div>
-            </div>
-            <div class="form-group">
-                <label><i class="fas fa-feather-alt"></i> PERSONAL MESSAGE (optional)</label>
-                <textarea id="personalMsg" rows="2" placeholder="A heartfelt note..."></textarea>
-            </div>
-            <button id="generateVoucherBtn" class="btn-primary"><i class="fas fa-gem"></i> Generate & Email Voucher</button>
-            <div class="smart-footer" style="margin-top: 1rem; padding: 0.8rem; font-size: 0.65rem;">
-                <i class="fas fa-shield-alt"></i> PDF + voucher sent directly to email • Secure & instant
-            </div>
+            <div class="form-group"><label><i class="fas fa-calendar-alt"></i> DESIRED APPOINTMENT *</label><input type="datetime-local" id="appointmentDt"><div class="error-msg" id="errAppointment">Select preferred date & time</div></div>
+            <div class="form-group"><label><i class="fas fa-credit-card"></i> PAYMENT DATE *</label><input type="date" id="paymentDt"><div class="error-msg" id="errPayment">Select payment date</div></div>
+            <div class="form-group"><label><i class="fas fa-feather-alt"></i> PERSONAL MESSAGE (optional)</label><textarea id="personalMsg" rows="2" placeholder="A heartfelt note..."></textarea></div>
+            <button id="generateVoucherBtn" class="btn-primary"><i class="fas fa-gem"></i> Generate Voucher</button>
+            <div class="smart-footer" style="margin-top: 1rem; padding: 0.6rem; font-size: 0.6rem;"><i class="fas fa-shield-alt"></i> PDF + voucher sent to email • secure</div>
         </div>
-
-        <!-- Preview Section -->
         <div class="preview-section">
             <div class="voucher-card" id="previewCard">
                 <div class="voucher-gold"></div>
-                <div class="voucher-inner" style="text-align: center; padding: 3rem 1.5rem;">
-                    <i class="fas fa-palm-tree" style="font-size: 3rem; color: #D6A88E; opacity: 0.5;"></i>
-                    <p style="margin-top: 1rem; color: #B58D74;">Fill details above to preview your luxury voucher</p>
+                <div class="voucher-inner" style="text-align: center; padding: 2rem 1rem;">
+                    <i class="fas fa-palm-tree" style="font-size: 2.5rem; color: #D6A88E; opacity: 0.5;"></i>
+                    <p style="margin-top: 0.8rem; font-size: 0.8rem; color: #B58D74;">Fill details to preview your voucher</p>
                 </div>
             </div>
         </div>
     </div>
+    <div class="smart-footer"><p style="font-size: 0.65rem; color: #A88775;">© 2025 Peaceful Palm Spa — After payment, send Proof of Payment + voucher PDF via WhatsApp to confirm.</p></div>
+</div>
 
-    <div class="smart-footer" style="margin-top: 2rem;">
-        <p style="font-size: 0.7rem; color: #A88775;">© 2025 Peaceful Palm Spa — Mobile wellness, smart gifting. After payment, send Proof of Payment + voucher PDF via WhatsApp to confirm.</p>
+<!-- ========== MODAL 1: INTRO + HOW IT WORKS (compact) ========= -->
+<div id="modalIntro" class="modal-overlay">
+    <div class="modal-container">
+        <div class="modal-header"><i class="fas fa-cookie-bite"></i><h2>Welcome to Serenity</h2><p>SMART VOUCHER GUIDE</p></div>
+        <div class="modal-body">
+            <div class="how-title"><i class="fas fa-seedling"></i> How it works</div>
+            <ul class="step-list">
+                <li><i class="fas fa-pen-fancy"></i> Fill recipient, service & dates</li>
+                <li><i class="fas fa-file-pdf"></i> Generate – PDF & email copy sent</li>
+                <li><i class="fas fa-university"></i> Pay using unique bank reference</li>
+                <li><i class="fab fa-whatsapp"></i> Send proof + voucher PDF via WhatsApp</li>
+                <li><i class="fas fa-calendar-check"></i> We confirm & schedule your appointment</li>
+            </ul>
+            <div class="cookie-note"><i class="fas fa-shield-alt"></i><span>🍪 Cookies & local storage ensure smooth experience</span></div>
+            <button class="modal-close-btn close-intro"><i class="fas fa-check-circle"></i> Got it, continue</button>
+        </div>
     </div>
 </div>
 
-<!-- Loading Overlay -->
-<div id="loadingOverlay" class="loading-overlay">
-    <div class="loading-spinner"></div>
-    <div class="loading-text">Crafting Serenity</div>
-    <div class="loading-sub">preparing your voucher & sending email</div>
-    <div class="loading-dots"><span></span><span></span><span></span></div>
+<!-- ========== MODAL 2: PEACEFUL PALM PROMISE (short & sweet) ========= -->
+<div id="modalPromise" class="modal-overlay">
+    <div class="modal-container">
+        <div class="modal-header"><i class="fas fa-hand-sparkles"></i><h2>Our Promise</h2><p>LUXURY MOBILE SPA</p></div>
+        <div class="modal-body">
+            <ul class="step-list">
+                <li><i class="fas fa-mobile-alt"></i> We come to your home in Cape Town</li>
+                <li><i class="fas fa-clock"></i> Flexible scheduling after payment</li>
+                <li><i class="fas fa-heart"></i> Organic products & eco-linens</li>
+                <li><i class="fas fa-star"></i> Free aromatherapy upgrade for first use</li>
+            </ul>
+            <div class="cookie-note"><i class="fas fa-leaf"></i><span>✨ Each voucher plants a tree with us.</span></div>
+            <button class="modal-close-btn close-promise"><i class="fas fa-spa"></i> Ready to relax</button>
+        </div>
+    </div>
 </div>
 
-<script>
-    // Initialize EmailJS with your public key
-    (function() {
-        // IMPORTANT: Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
-        // You can find it in your EmailJS dashboard under "Account" -> "API Keys"
-        emailjs.init({
-            publicKey: "jzGyoSK8rWnvprRH-", // <-- REPLACE WITH YOUR ACTUAL PUBLIC KEY
-        });
-    })();
+<!-- ========== MODAL 3: SUCCESS + FOLLOW-UP (explicit: voucher sent to Peaceful Palm, they reach out) ========= -->
+<div id="modalSuccessReachout" class="modal-overlay">
+    <div class="modal-container">
+        <div class="modal-header"><i class="fas fa-envelope-open-text"></i><h2>Voucher Generated ✨</h2><p>WE'LL REACH OUT TO YOU</p></div>
+        <div class="modal-body">
+            <div class="how-title"><i class="fas fa-whatsapp"></i> Next steps – Peaceful Palm will follow up</div>
+            <ul class="step-list">
+                <li><i class="fas fa-download"></i> <strong>PDF & email sent</strong> – Your voucher is ready.</li>
+                <li><i class="fas fa-palm-tree"></i> <strong>Voucher details are shared with Peaceful Palm</strong> – our team receives your request instantly.</li>
+                <li><i class="fab fa-whatsapp"></i> <strong>We will contact you within 24h</strong> via WhatsApp or email to confirm appointment, answer questions, and finalise your spa journey.</li>
+                <li><i class="fas fa-receipt"></i> Use the unique reference on the voucher for payment tracking.</li>
+            </ul>
+            <div class="cookie-note"><i class="fas fa-phone-alt"></i><span>📞 Need help? Chat with us at 067 870 8737</span></div>
+            <button class="modal-close-btn close-success-msg"><i class="fas fa-check-double"></i> Wonderful, thank you</button>
+        </div>
+    </div>
+</div>
 
-    // DOM Elements
+<!-- TIPS BUTTON (extra mini popups) -->
+<button id="tipsFloatingBtn" class="tips-button"><i class="fas fa-lightbulb"></i></button>
+
+<div id="loadingOverlay" class="loading-overlay"><div class="loading-spinner"></div><div class="loading-text">Crafting Serenity</div><div class="loading-sub" style="color: rgba(232,196,138,0.7); font-size: 0.7rem;">preparing your voucher & sending email</div></div>
+
+<script>
+    (function() { emailjs.init({ publicKey: "jzGyoSK8rWnvprRH-" }); })();
+
+    // ----- Multi-popup manager (compact centered) -----
+    let introModal = document.getElementById('modalIntro');
+    let promiseModal = document.getElementById('modalPromise');
+    let successModal = document.getElementById('modalSuccessReachout');
+    let activeModal = null;
+    
+    function showModal(modalElement) {
+        if (activeModal) hideModal(activeModal, false);
+        modalElement.classList.add('active');
+        activeModal = modalElement;
+    }
+    function hideModal(modalElement, removeActive = true) {
+        if (modalElement) modalElement.classList.remove('active');
+        if (removeActive && activeModal === modalElement) activeModal = null;
+    }
+    // close buttons for each modal
+    document.querySelectorAll('.close-intro').forEach(btn => btn.addEventListener('click', () => {
+        hideModal(introModal);
+        setTimeout(() => { showModal(promiseModal); }, 300);
+    }));
+    document.querySelectorAll('.close-promise').forEach(btn => btn.addEventListener('click', () => hideModal(promiseModal)));
+    document.querySelectorAll('.close-success-msg').forEach(btn => btn.addEventListener('click', () => hideModal(successModal)));
+    // click outside to close
+    [introModal, promiseModal, successModal].forEach(modal => {
+        modal.addEventListener('click', (e) => { if(e.target === modal) hideModal(modal); });
+    });
+
+    // Show intro only once per session, then promise follows after closing intro
+    if (!sessionStorage.getItem('peacefulIntroShown')) {
+        setTimeout(() => { showModal(introModal); }, 400);
+        sessionStorage.setItem('peacefulIntroShown', 'true');
+    }
+
+    // ---------- TIPS BUTTON : random small popup ----------
+    const tipMessages = [
+        { title: "🌿 Eco note", desc: "We plant a tree for every 10 vouchers sold – thank you!", icon: "fas fa-tree" },
+        { title: "🎁 Gift idea", desc: "Add an aromatherapy upgrade for only R50 extra.", icon: "fas fa-gift" },
+        { title: "📱 WhatsApp", desc: "Save 067 870 8737 for quick confirmations.", icon: "fab fa-whatsapp" },
+        { title: "💆‍♀️ Signature", desc: "Signature Bliss includes hot stones + scalp massage.", icon: "fas fa-feather-alt" },
+        { title: "🕊️ Best times", desc: "Weekday mornings = extra tranquil slots.", icon: "fas fa-sun" }
+    ];
+    function showRandomTipPopup() {
+        const randomTip = tipMessages[Math.floor(Math.random() * tipMessages.length)];
+        let tempDiv = document.createElement('div');
+        tempDiv.className = 'modal-overlay active';
+        tempDiv.style.zIndex = '4500';
+        tempDiv.innerHTML = `
+            <div class="modal-container" style="max-width: 340px;">
+                <div class="modal-header" style="padding:0.8rem 1rem 0.4rem;"><i class="${randomTip.icon}" style="font-size:1.8rem;"></i><h2 style="font-size:1.2rem;">${randomTip.title}</h2></div>
+                <div class="modal-body" style="padding:0.8rem 1.2rem 1.2rem;">
+                    <p style="font-size:0.75rem; color:#5C3E32; margin-bottom:0.8rem;">${randomTip.desc}</p>
+                    <button class="modal-close-btn" id="closeTipBtn" style="margin-top:0;">💡 Lovely tip</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(tempDiv);
+        const closeTip = tempDiv.querySelector('#closeTipBtn');
+        const closeHandler = () => { tempDiv.remove(); };
+        closeTip.addEventListener('click', closeHandler);
+        tempDiv.addEventListener('click', (e) => { if(e.target === tempDiv) closeHandler(); });
+    }
+    document.getElementById('tipsFloatingBtn').addEventListener('click', showRandomTipPopup);
+
+    // ---- FULL VOUCHER LOGIC (Email + PDF + success modal) ----
     const toggleSelf = document.querySelector('[data-type="self"]');
     const toggleGift = document.querySelector('[data-type="gift"]');
     const recipientInput = document.getElementById('recipientName');
     const senderInput = document.getElementById('senderName');
     const senderGroup = document.getElementById('senderGroup');
     const emailInput = document.getElementById('emailAddress');
+    const whatsappInput = document.getElementById('whatsappNumber');
     const serviceSelect = document.getElementById('serviceSelect');
     const appointmentInput = document.getElementById('appointmentDt');
     const paymentDateInput = document.getElementById('paymentDt');
@@ -453,46 +500,33 @@
     const generateBtn = document.getElementById('generateVoucherBtn');
     const loadingOverlay = document.getElementById('loadingOverlay');
     const previewCard = document.getElementById('previewCard');
-
     let currentVoucherType = 'self';
-    let currentRef = '';
 
-    // Helper Functions
     function generateVoucherRef() {
         const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ0123456789';
-        let code = '';
-        for(let i=0;i<6;i++) code += chars[Math.floor(Math.random() * chars.length)];
-        const d = new Date();
-        return `PP${d.getDate().toString().padStart(2,'0')}${(d.getMonth()+1).toString().padStart(2,'0')}${code}`;
+        let code = ''; for(let i=0;i<6;i++) code += chars[Math.floor(Math.random() * chars.length)];
+        const d = new Date(); return `PP${d.getDate().toString().padStart(2,'0')}${(d.getMonth()+1).toString().padStart(2,'0')}${code}`;
     }
-
     function formatDate(dateStr, isDateTime = false) {
         if(!dateStr) return 'Not specified';
         const d = new Date(dateStr);
-        if(isDateTime) return d.toLocaleString('en-US', { month:'short', day:'numeric', year:'numeric', hour:'2-digit', minute:'2-digit' });
+        if(isDateTime) return d.toLocaleString('en-US', { month:'short', day:'numeric', hour:'2-digit', minute:'2-digit' });
         return d.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
     }
-
     function getServiceDetails() {
         const val = serviceSelect.value;
         if(!val || !val.includes('|')) return { name: '', price: '' };
         const [name, price] = val.split('|');
         return { name: name.trim(), price: `R ${parseFloat(price).toFixed(2)}` };
     }
-
-    function getExpiryDate() {
-        const d = new Date();
-        d.setMonth(d.getMonth() + 6);
-        return d.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
-    }
-
+    function getExpiryDate() { const d = new Date(); d.setMonth(d.getMonth() + 6); return d.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' }); }
+    function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;'); }
+    
     function updatePreview() {
         const recipient = recipientInput.value.trim() || 'Guest';
         let sender = senderInput.value.trim();
-        const type = currentVoucherType;
-        if(type === 'self' && sender === '') sender = recipient;
+        if(currentVoucherType === 'self' && sender === '') sender = recipient;
         if(sender === '') sender = '—';
-        
         const service = getServiceDetails();
         const appointment = appointmentInput.value ? formatDate(appointmentInput.value, true) : 'Not set';
         const payment = paymentDateInput.value ? formatDate(paymentDateInput.value) : 'Not set';
@@ -500,267 +534,65 @@
         const ref = generateVoucherRef();
         const generatedTime = new Date().toLocaleString();
         const expiry = getExpiryDate();
-        
-        const previewHTML = `
-            <div class="voucher-gold"></div>
-            <div class="voucher-inner">
-                <div style="text-align:center; margin-bottom:1rem;">
-                    <span class="voucher-badge"><i class="fas fa-hashtag"></i> REF: ${ref}</span>
-                    <div style="font-size:0.6rem; color:#A88775; margin-top:6px;"><i class="far fa-clock"></i> ${generatedTime}</div>
-                </div>
-                <div class="info-row"><span class="info-label">TO</span><span class="info-value">${escapeHtml(recipient)}</span></div>
-                <div class="info-row"><span class="info-label">FROM</span><span class="info-value">${escapeHtml(sender)}</span></div>
-                <div class="info-row"><span class="info-label">SERVICE</span><span class="info-value">${escapeHtml(service.name)}</span></div>
-                <div class="info-row"><span class="info-label">AMOUNT</span><span class="info-value value-highlight" style="color:#C47A5E; font-weight:800;">${service.price}</span></div>
-                <div class="info-row"><span class="info-label">DESIRED APPOINTMENT</span><span class="info-value">${escapeHtml(appointment)}</span></div>
-                <div class="info-row"><span class="info-label">PAYMENT DATE</span><span class="info-value">${escapeHtml(payment)}</span></div>
-                <div class="info-row"><span class="info-label">VALID THROUGH</span><span class="info-value">${expiry}</span></div>
-                
-                <div class="bank-block">
-                    <div class="bank-title" style="font-size:0.7rem; font-weight:800; margin-bottom:8px;"><i class="fas fa-credit-card"></i> PAYMENT DETAILS</div>
-                    <div class="bank-row" style="display:flex; justify-content:space-between; font-size:0.65rem; padding:4px 0;"><span>Bank:</span><span>African Bank</span></div>
-                    <div class="bank-row" style="display:flex; justify-content:space-between; font-size:0.65rem; padding:4px 0;"><span>Account Holder:</span><span>Ms M Mwiroma</span></div>
-                    <div class="bank-row" style="display:flex; justify-content:space-between; font-size:0.65rem; padding:4px 0;"><span>Account Number:</span><span>20185031259</span></div>
-                    <div class="bank-row" style="display:flex; justify-content:space-between; font-size:0.65rem; padding:4px 0;"><span>Payment Ref:</span><span><strong style="background:#F7E8E0; padding:2px 10px; border-radius:20px;">${ref}</strong></span></div>
-                    <div style="font-size:0.55rem; text-align:center; margin-top:8px; color:#A77C64;">Use reference above • After payment, send PoP + voucher PDF</div>
-                </div>
-                
-                <div class="secret-message-area" id="secretPreviewTrigger">
-                    <div class="secret-header"><i class="fas fa-envelope-open-text"></i> 💌 REVEAL PERSONAL NOTE <i class="fas fa-chevron-down"></i></div>
-                    <div class="secret-content" id="secretPreviewContent">
-                        <div class="secret-message-preview" style="font-family:'Playfair Display', serif; font-style:italic; font-size:0.8rem;">${escapeHtml(message)}</div>
-                    </div>
-                </div>
-                <div style="font-size:0.6rem; text-align:center; margin-top:1rem; color:#A88775;"><i class="fas fa-phone-alt"></i> 067 870 8737 • Mobile Spa Cape Town</div>
-            </div>
-        `;
-        
+        const previewHTML = `<div class="voucher-gold"></div><div class="voucher-inner"><div style="text-align:center; margin-bottom:0.8rem;"><span class="voucher-badge" style="background:#F6EDE6; padding:3px 12px;"><i class="fas fa-hashtag"></i> REF: ${ref}</span><div style="font-size:0.55rem; color:#A88775;">${generatedTime}</div></div>
+        <div class="info-row"><span class="info-label">TO</span><span class="info-value">${escapeHtml(recipient)}</span></div>
+        <div class="info-row"><span class="info-label">FROM</span><span class="info-value">${escapeHtml(sender)}</span></div>
+        <div class="info-row"><span class="info-label">SERVICE</span><span class="info-value">${escapeHtml(service.name)}</span></div>
+        <div class="info-row"><span class="info-label">AMOUNT</span><span class="info-value" style="color:#C47A5E;">${service.price}</span></div>
+        <div class="info-row"><span class="info-label">APPOINTMENT</span><span class="info-value">${escapeHtml(appointment)}</span></div>
+        <div class="info-row"><span class="info-label">PAYMENT DATE</span><span class="info-value">${escapeHtml(payment)}</span></div>
+        <div class="info-row"><span class="info-label">VALID THROUGH</span><span class="info-value">${expiry}</span></div>
+        <div class="bank-block"><div style="font-weight:700; font-size:0.7rem;"><i class="fas fa-credit-card"></i> PAYMENT DETAILS</div><div style="display:flex; justify-content:space-between; font-size:0.6rem;"><span>Bank:</span><span>African Bank</span></div><div style="display:flex; justify-content:space-between; font-size:0.6rem;"><span>Account:</span><span>Ms M Mwiroma</span></div><div style="display:flex; justify-content:space-between; font-size:0.6rem;"><span>Acc #:</span><span>20185031259</span></div><div style="display:flex; justify-content:space-between; font-size:0.6rem;"><span>Ref:</span><span><strong style="background:#F7E8E0; padding:2px 8px; border-radius:20px;">${ref}</strong></span></div></div>
+        <div class="secret-message-area" id="secretPreviewTrigger"><div class="secret-header"><i class="fas fa-envelope-open-text"></i> 💌 Personal note</div><div class="secret-content" id="secretPreviewContent"><div style="font-style:italic; font-size:0.7rem;">${escapeHtml(message)}</div></div></div>
+        <div style="font-size:0.55rem; text-align:center; margin-top:0.8rem;"><i class="fas fa-phone-alt"></i> 067 870 8737 • Mobile Spa</div></div>`;
         previewCard.innerHTML = previewHTML;
-        
-        const secretTrigger = document.getElementById('secretPreviewTrigger');
-        if(secretTrigger) {
-            secretTrigger.addEventListener('click', function(e) {
-                const content = this.querySelector('.secret-content');
-                if(content) content.classList.toggle('open');
-            });
-        }
-        
+        const trigger = document.getElementById('secretPreviewTrigger');
+        if(trigger) trigger.addEventListener('click', function(e) { const c = this.querySelector('.secret-content'); if(c) c.classList.toggle('open'); });
         return { ref, generatedTime, expiry, serviceName: service.name, amount: service.price, recipient, sender, appointment, payment, message };
     }
-
-    function escapeHtml(str) {
-        if(!str) return '';
-        return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;');
-    }
-
-    function validateForm() {
-        let isValid = true;
-        document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
-        document.querySelectorAll('input, select').forEach(el => el.classList.remove('input-error'));
-        
-        const recipient = recipientInput.value.trim();
-        if(!recipient) {
-            document.getElementById('errRecipient').classList.add('show');
-            recipientInput.classList.add('input-error');
-            isValid = false;
-        }
-        
-        const email = emailInput.value.trim();
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if(!email || !emailRegex.test(email)) {
-            document.getElementById('errEmail').classList.add('show');
-            emailInput.classList.add('input-error');
-            isValid = false;
-        }
-        
-        if(currentVoucherType === 'gift') {
-            const sender = senderInput.value.trim();
-            if(!sender) {
-                document.getElementById('errSender').classList.add('show');
-                senderInput.classList.add('input-error');
-                isValid = false;
-            }
-        }
-        
-        if(!serviceSelect.value || !serviceSelect.value.includes('|')) {
-            document.getElementById('errService').classList.add('show');
-            serviceSelect.classList.add('input-error');
-            isValid = false;
-        }
-        
-        if(!appointmentInput.value) {
-            document.getElementById('errAppointment').classList.add('show');
-            appointmentInput.classList.add('input-error');
-            isValid = false;
-        } else {
-            const selectedDate = new Date(appointmentInput.value);
-            if(selectedDate < new Date()) {
-                document.getElementById('errAppointment').innerText = 'Appointment cannot be in the past';
-                document.getElementById('errAppointment').classList.add('show');
-                appointmentInput.classList.add('input-error');
-                isValid = false;
-            }
-        }
-        
-        if(!paymentDateInput.value) {
-            document.getElementById('errPayment').classList.add('show');
-            paymentDateInput.classList.add('input-error');
-            isValid = false;
-        }
-        
+    
+    function validateForm() { let isValid = true; document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show')); document.querySelectorAll('input, select').forEach(el => el.classList.remove('input-error'));
+        if(!recipientInput.value.trim()) { document.getElementById('errRecipient').classList.add('show'); recipientInput.classList.add('input-error'); isValid=false; }
+        const email=emailInput.value.trim(); if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById('errEmail').classList.add('show'); emailInput.classList.add('input-error'); isValid=false; }
+        const wa=whatsappInput.value.trim(); if(!wa || !/^[0-9]{9,15}$/.test(wa.replace(/[^0-9]/g,''))) { document.getElementById('errWhatsapp').classList.add('show'); whatsappInput.classList.add('input-error'); isValid=false; }
+        if(currentVoucherType==='gift' && !senderInput.value.trim()) { document.getElementById('errSender').classList.add('show'); senderInput.classList.add('input-error'); isValid=false; }
+        if(!serviceSelect.value || !serviceSelect.value.includes('|')) { document.getElementById('errService').classList.add('show'); serviceSelect.classList.add('input-error'); isValid=false; }
+        if(!appointmentInput.value) { document.getElementById('errAppointment').classList.add('show'); appointmentInput.classList.add('input-error'); isValid=false; }
+        else if(new Date(appointmentInput.value) < new Date()) { document.getElementById('errAppointment').innerText='Appointment cannot be in the past'; document.getElementById('errAppointment').classList.add('show'); appointmentInput.classList.add('input-error'); isValid=false; }
+        if(!paymentDateInput.value) { document.getElementById('errPayment').classList.add('show'); paymentDateInput.classList.add('input-error'); isValid=false; }
         return isValid;
     }
-
-    async function generatePDFBlob(voucherElementHTML) {
-        const container = document.createElement('div');
-        container.style.background = '#FEF8F2';
-        container.style.padding = '30px';
-        container.style.width = '750px';
-        container.style.fontFamily = "'Inter', sans-serif";
-        container.innerHTML = voucherElementHTML;
-        
-        const secretDiv = container.querySelector('.secret-content');
-        if(secretDiv) secretDiv.classList.remove('open');
-        
-        const opt = {
-            margin: [0.5, 0.5, 0.5, 0.5],
-            filename: `voucher_temp.pdf`,
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2.5, backgroundColor: '#FEF8F2', logging: false },
-            jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-        };
-        
-        const pdfBlob = await html2pdf().set(opt).from(container).outputPdf('blob');
-        return pdfBlob;
-    }
-
-    // Send email using EmailJS - template placeholders match your form data
-    async function sendVoucherEmail(recipientEmail, voucherData) {
-        // IMPORTANT: Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS IDs
-        // Service ID: Found in EmailJS dashboard under "Email Services"
-        // Template ID: Found in your email template settings
-        const templateParams = {
-            from_name: voucherData.sender,
-            to_name: voucherData.recipient,
-            voucher_ref: voucherData.ref,
-            generated_date: voucherData.generatedTime,
-            service_name: voucherData.serviceName,
-            amount: voucherData.amount,
-            appointment: voucherData.appointment,
-            valid_until: voucherData.expiry,
-            secret_message: voucherData.message,
-            to_email: recipientEmail
-        };
-        
-        try {
-            const result = await emailjs.send(
-                "service_xikuz75",    // <-- REPLACE with your EmailJS Service ID
-                "template_i7nhd36",   // <-- REPLACE with your EmailJS Template ID
-                templateParams
-            );
-            console.log('Email sent successfully:', result);
-            return { success: true };
-        } catch (err) {
-            console.error('EmailJS error:', err);
-            return { success: false, error: err.text || 'Email service error' };
-        }
-    }
-
-    // Main generation and email flow
+    
+    async function generatePDFBlob(html) { const container = document.createElement('div'); container.innerHTML = html; container.style.background='#FEF8F2'; container.style.padding='20px'; container.style.width='700px'; const secretDiv = container.querySelector('.secret-content'); if(secretDiv) secretDiv.classList.remove('open'); const opt = { margin: [0.4,0.4,0.4,0.4], image: { type: 'jpeg', quality: 0.95 }, html2canvas: { scale: 2.2, backgroundColor: '#FEF8F2' }, jsPDF: { unit: 'in', format: 'a4' } }; return await html2pdf().set(opt).from(container).outputPdf('blob'); }
+    
+    async function sendVoucherEmail(recipientEmail, vData, buyerEmail, buyerWhatsapp) { const params = { from_name: vData.sender, to_name: vData.recipient, voucher_ref: vData.ref, generated_date: vData.generatedTime, service_name: vData.serviceName, amount: vData.amount, appointment: vData.appointment, payment_date: vData.payment, valid_until: vData.expiry, secret_message: vData.message, to_email: recipientEmail, buyer_email: buyerEmail, buyer_whatsapp: buyerWhatsapp }; try { await emailjs.send("service_xikuz75", "template_i7nhd36", params); return { success: true }; } catch(e) { console.error(e); return { success: false }; } }
+    
+    function showToast(msg, bg) { const t = document.createElement('div'); t.textContent = msg; t.style.cssText = `position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:${bg}; color:white; padding:10px 20px; border-radius:40px; z-index:5000; font-size:0.75rem; font-weight:500; box-shadow:0 4px 12px rgba(0,0,0,0.2);`; document.body.appendChild(t); setTimeout(()=>t.remove(),4000); }
+    
     generateBtn.addEventListener('click', async () => {
         if(!validateForm()) return;
-        
-        const voucherData = updatePreview();
+        const vd = updatePreview();
         const recipientEmail = emailInput.value.trim();
-        const voucherRef = voucherData.ref;
-        currentRef = voucherRef;
-        
+        const buyerWhatsapp = whatsappInput.value.trim();
         const voucherHTML = previewCard.innerHTML;
-        
         loadingOverlay.classList.add('active');
-        
         try {
             const pdfBlob = await generatePDFBlob(`<div class="voucher-card" style="max-width:700px; margin:0 auto;">${voucherHTML}</div>`);
-            
-            const emailResult = await sendVoucherEmail(recipientEmail, {
-                ...voucherData,
-                ref: voucherRef
-            });
-            
-            const downloadLink = document.createElement('a');
-            const pdfUrl = URL.createObjectURL(pdfBlob);
-            downloadLink.href = pdfUrl;
-            downloadLink.download = `PeacefulPalm_Voucher_${voucherRef}.pdf`;
-            downloadLink.click();
-            URL.revokeObjectURL(pdfUrl);
-            
-            if(emailResult.success) {
-                showToastMessage('✨ Voucher sent to email! PDF also downloaded.', '#2D6A4F');
-            } else {
-                showToastMessage('📧 PDF downloaded. EmailJS setup: Check your Service ID & Template ID', '#C47A5E');
-            }
-            
-            const ownerMsg = `🪷 NEW VOUCHER: ${voucherRef}\nTo: ${voucherData.recipient}\nService: ${voucherData.serviceName}\nAmount: ${voucherData.amount}\nEmail sent to: ${recipientEmail}`;
+            await sendVoucherEmail(recipientEmail, { ...vd, ref: vd.ref }, emailInput.value.trim(), buyerWhatsapp);
+            const pdfUrl = URL.createObjectURL(pdfBlob); const a = document.createElement('a'); a.href = pdfUrl; a.download = `PeacefulPalm_Voucher_${vd.ref}.pdf`; a.click(); URL.revokeObjectURL(pdfUrl);
+            showToast('✨ Voucher generated! PDF + email sent.', '#2D6A4F');
+            // Show success modal explaining that Peaceful Palm receives voucher & will reach out
+            showModal(successModal);
+            const ownerMsg = `🪷 VOUCHER: ${vd.ref}\nTo: ${vd.recipient}\nService: ${vd.serviceName}\nWhatsApp: ${buyerWhatsapp}`;
             window.open(`https://wa.me/27676080195?text=${encodeURIComponent(ownerMsg)}`, '_blank');
-            
-        } catch (err) {
-            console.error(err);
-            showToastMessage('❌ Generation error. Please try again.', '#C47A5E');
-        } finally {
-            setTimeout(() => {
-                loadingOverlay.classList.remove('active');
-            }, 800);
-        }
+        } catch(e) { showToast('❌ Error, please try again', '#C47A5E'); } finally { setTimeout(()=>loadingOverlay.classList.remove('active'), 800); }
     });
     
-    function showToastMessage(msg, bgColor) {
-        const toast = document.createElement('div');
-        toast.textContent = msg;
-        toast.style.position = 'fixed';
-        toast.style.bottom = '30px';
-        toast.style.left = '50%';
-        toast.style.transform = 'translateX(-50%)';
-        toast.style.backgroundColor = bgColor;
-        toast.style.color = 'white';
-        toast.style.padding = '12px 24px';
-        toast.style.borderRadius = '60px';
-        toast.style.fontSize = '0.8rem';
-        toast.style.fontWeight = '500';
-        toast.style.zIndex = '4000';
-        toast.style.boxShadow = '0 10px 25px rgba(0,0,0,0.2)';
-        toast.style.whiteSpace = 'nowrap';
-        document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 4000);
-    }
-    
-    function setVoucherType(type) {
-        currentVoucherType = type;
-        if(type === 'self') {
-            senderGroup.style.opacity = '0.5';
-            senderInput.placeholder = 'Optional (same as recipient)';
-            document.getElementById('errSender').style.display = 'none';
-        } else {
-            senderGroup.style.opacity = '1';
-            senderInput.placeholder = 'Your name (gift giver)';
-        }
-        toggleSelf.classList.toggle('active', type === 'self');
-        toggleGift.classList.toggle('active', type === 'gift');
-        updatePreview();
-    }
-    
-    toggleSelf.addEventListener('click', () => setVoucherType('self'));
-    toggleGift.addEventListener('click', () => setVoucherType('gift'));
-    
-    [recipientInput, senderInput, serviceSelect, appointmentInput, paymentDateInput, personalMsg].forEach(el => {
-        if(el) el.addEventListener('input', () => updatePreview());
-    });
-    
-    const today = new Date().toISOString().split('T')[0];
-    paymentDateInput.value = today;
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    appointmentInput.value = tomorrow.toISOString().slice(0, 16);
-    
+    function setVoucherType(type) { currentVoucherType = type; if(type==='self') { senderGroup.style.opacity='0.5'; senderInput.placeholder='Optional (same as recipient)'; document.getElementById('errSender').style.display='none'; } else { senderGroup.style.opacity='1'; senderInput.placeholder='Your name (gift giver)'; } toggleSelf.classList.toggle('active', type==='self'); toggleGift.classList.toggle('active', type==='gift'); updatePreview(); }
+    toggleSelf.addEventListener('click',()=>setVoucherType('self')); toggleGift.addEventListener('click',()=>setVoucherType('gift'));
+    [recipientInput, senderInput, serviceSelect, appointmentInput, paymentDateInput, personalMsg, whatsappInput].forEach(el=>el&&el.addEventListener('input',()=>updatePreview()));
+    const today = new Date().toISOString().split('T')[0]; paymentDateInput.value = today;
+    const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate()+1); appointmentInput.value = tomorrow.toISOString().slice(0,16);
     updatePreview();
 </script>
 </body>
